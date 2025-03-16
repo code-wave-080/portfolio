@@ -1,26 +1,39 @@
 @import 'tailwindcss';
 
-:root {
-    --background: #ffffff;
-    --foreground: #171717;
-}
-
-@theme inline {
-    --color-background: var(--background);
-    --color-foreground: var(--foreground);
-    --font-sans: var(--font-geist-sans);
-    --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-    :root {
-        --background: #0a0a0a;
-        --foreground: #ededed;
+@media (min-width: 1148px) {
+    .container {
+        max-width: 1148px;
     }
 }
 
-body {
-    background: var(--background);
-    color: var(--foreground);
-    font-family: Arial, Helvetica, sans-serif;
+@media not all and (min-width: 768px) {
+    .max-md\:pb-10 {
+        padding-bottom: 2.5rem;
+    }
+    .max-md\:flex-col {
+        flex-direction: column;
+    }
+}
+
+.container {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 1rem;
+    padding-left: 1rem;
+}
+
+@keyframes twinkle {
+    0% {
+        opacity: 0.3;
+        transform: translateY(0px) scale(1);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(-2px) scale(1.2);
+    }
+}
+
+.twinkle-move {
+    animation: twinkle 1.5s infinite alternate ease-in-out;
 }
