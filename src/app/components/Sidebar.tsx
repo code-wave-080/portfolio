@@ -1,0 +1,79 @@
+"use client";
+
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+
+export default function Navbar() {
+    const [isOpen, setIsOpen] = useState<boolean>(false);
+
+    const toggleMenu = () => setIsOpen((prev) => !prev);
+
+    // 네비게이션 컨테이너 애니메이션 옵션
+    const containerVariants = {
+        hidden: { opacity: 0, x: "100%" },
+        visible: { opacity: 1, x: 0 },
+        exit: { opacity: 0, x: "100%" },
+    };
+
+    // 네비게이션 아이템 애니메이션 옵션 (stagger 효과를 줄 수 있음)
+    const itemVariants = {
+        hidden: { opacity: 0, y: 20 },
+        visible: { opacity: 1, y: 0 },
+    };
+
+    return (
+        <>
+            {/* 네비게이션 바 (메뉴 버튼) */}
+            <div className="sticky top-0 z-[5]">
+                <button className="group size-12 absolute top-5 right-5 md:right-10" onClick={() => toggleMenu()}>
+                    <span className={`inline-block w-3/5 h-0.5 rounded-full absolute left-1/2 -translate-x-1/2 top-1/2 duration-300 bg-[#DEDEDE] ${isOpen ? 'rotate-45 -translate-y-1/2' : '-translate-y-[5px] md:group-hover:rotate-12'}`}></span>
+                    <span className={`inline-block w-3/5 h-0.5 rounded-full absolute left-1/2 -translate-x-1/2 top-1/2 duration-300 bg-[#DEDEDE] ${isOpen ? '-rotate-45 -translate-y-1/2' : 'translate-y-[5px] md:group-hover:-rotate-12'}`}></span>
+                </button>
+            </div>
+
+            {/* 오버레이 (배경 어둡게) */}
+            {isOpen && (
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 0.6 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="fixed inset-0 bg-black opacity-60 z-[4]"
+                    onClick={() => setIsOpen(false)}
+                />
+            )}
+
+            {/* 메뉴 오버레이 */}
+            <AnimatePresence>
+                {isOpen && (
+                    <motion.div
+                        key="menu"
+                        initial={{ x: "100%", borderRadius: "100px" }} // 처음엔 둥글게
+                        animate={{ x: 0, borderRadius: "0px" }} // 열릴 때 네모로 변경
+                        exit={{ x: "100%", borderRadius: "100px" }} // 닫힐 때 다시 둥글게
+                        transition={{ duration: 0.4, ease: "easeOut" }}
+                        className="fixed top-0 right-0 w-[450px] h-full bg-[#313131] z-[4] flex flex-col items-center justify-center"
+                    >
+                        {/* 메뉴 아이템 리스트 */}
+                        <motion.ul
+                            className="space-y-7 text-center"
+                            // initial="hidden"
+                            // animate="visible"
+                            // transition={{ staggerChildren: 0.1, delayChildren: 0.2 }}
+                        >
+                            {["Home", "About", "Projects", "Contact"].map((item) => (
+                                <motion.li
+                                    key={item}
+                                    variants={itemVariants}
+                                    className="text-2xl text-[#DEDEDE] cursor-pointer transition-transform duration-200 hover:scale-110"
+                                >
+                                    <a href={`#${item.toLowerCase()}`}>{item}</a>
+                                </motion.li>
+                            ))}
+                        </motion.ul>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+        </>
+    );
+}
