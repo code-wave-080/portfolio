@@ -1,8 +1,22 @@
 @import 'tailwindcss';
 
+.container {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 1rem;
+    padding-left: 1rem;
+}
+
 @media (min-width: 1148px) {
     .container {
         max-width: 1148px;
+    }
+}
+
+@media (min-width: 640px) {
+    .sm\:grid-cols-12 {
+        grid-template-columns: repeat(12, minmax(0, 1fr));
     }
 }
 
@@ -15,12 +29,13 @@
     }
 }
 
-.container {
-    width: 100%;
-    margin-right: auto;
-    margin-left: auto;
-    padding-right: 1rem;
-    padding-left: 1rem;
+@layer utilities {
+    .hide-scrollbar {
+        scrollbar-width: none;
+    }
+    .hide-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
 }
 
 @keyframes twinkle {

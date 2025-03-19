@@ -25,7 +25,7 @@ export default function Navbar() {
         <>
             {/* 네비게이션 바 (메뉴 버튼) */}
             <div className="sticky top-0 z-[5]">
-                <button className="group size-12 absolute top-5 right-5 md:right-10" onClick={() => toggleMenu()}>
+                <button className="group size-12 absolute top-5 right-5 md:right-5" onClick={() => toggleMenu()}>
                     <span className={`inline-block w-3/5 h-0.5 rounded-full absolute left-1/2 -translate-x-1/2 top-1/2 duration-300 bg-[#DEDEDE] ${isOpen ? 'rotate-45 -translate-y-1/2' : '-translate-y-[5px] md:group-hover:rotate-12'}`}></span>
                     <span className={`inline-block w-3/5 h-0.5 rounded-full absolute left-1/2 -translate-x-1/2 top-1/2 duration-300 bg-[#DEDEDE] ${isOpen ? '-rotate-45 -translate-y-1/2' : 'translate-y-[5px] md:group-hover:-rotate-12'}`}></span>
                 </button>
