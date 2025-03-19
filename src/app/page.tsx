@@ -5,6 +5,7 @@ import Banner from '@/app/components/Banner'
 import ScrollProgress from '@/app/components/ScrollProgress'
 import Footer from '@/app/components/Footer'
 import Sidebar from '@/app/components/Sidebar'
+import MyStack from '@/app/components/MyStack'
 
 export default function Home() {
     const [translateY, setTranslateY] = useState<number>(-100)
@@ -24,7 +25,7 @@ export default function Home() {
 
     return (
         <div
-            className="relative w-full h-screen overflow-x-hidden overflow-y-auto bg-[#212121]"
+            className="relative w-full h-screen overflow-x-hidden overflow-y-auto hide-scrollbar bg-[#212121]"
             onScroll={(e) => {
                 const { scrollTop, scrollHeight, clientHeight } =
                     e.currentTarget
@@ -50,6 +51,7 @@ export default function Home() {
             <div className="grid grid-rows-[0px_1fr_65px]">
                 <Sidebar />
                 <Banner />
+                <MyStack />
                 <Footer />
             </div>
             <ScrollProgress value={translateY} />
