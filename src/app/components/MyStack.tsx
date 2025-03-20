@@ -1,14 +1,40 @@
 export default function MyStack() {
-    const stacks = [
-        'Javascript',
-        'TypeScript',
-        'Vue',
-        'React',
-        'Next.js',
-        'Tailwind CSS',
-        'Frammer Motion',
-        'SASS',
-    ]
+    const stack = {
+        frontend: [
+            {
+                label: 'Javascript',
+                url: 'javascript',
+            },
+            {
+                label: 'TypeScript',
+                url: '',
+            },
+            {
+                label: 'Vue',
+                url: '',
+            },
+            {
+                label: 'React',
+                url: '',
+            },
+            {
+                label: 'Next.js',
+                url: '',
+            },
+            {
+                label: 'Tailwind CSS',
+                url: '',
+            },
+            {
+                label: 'Frammer Motion',
+                url: '',
+            },
+            {
+                label: 'SASS',
+                url: '',
+            },
+        ],
+    };
 
     return (
         <div className="container">
@@ -32,16 +58,20 @@ export default function MyStack() {
                         </p>
                     </div>
                     <div className="sm:col-span-7 flex gap-x-11 gap-y-9 flex-wrap">
-                        {stacks.map((stack, index) => (
+                        {stack.frontend.map((stack, index) => (
                             <div
                                 className="slide-up flex gap-3.5 items-center leading-none"
                                 key={index}
                             >
-                                <div className="rounded-full w-10 h-10 bg-[#313131]">
-                                    <img src="" alt="" />
+                                <div className="rounded-full w-10 h-10 bg-[#313131] overflow-hidden flex items-center justify-center">
+                                    <img
+                                        src={`/icons/${stack.url}.svg`}
+                                        alt=""
+                                        className="w-full h-full object-cover"
+                                    />
                                 </div>
                                 <span className="text-1xl capitalize text-[#DEDEDE]">
-                                    {stack}
+                                    {stack.label}
                                 </span>
                             </div>
                         ))}
