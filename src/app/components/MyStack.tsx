@@ -3,35 +3,43 @@ export default function MyStack() {
         frontend: [
             {
                 label: 'Javascript',
-                url: 'javascript',
+                value: 'javascript',
+                color: '#F7DF1E',
             },
             {
                 label: 'TypeScript',
-                url: '',
+                value: 'typescript',
+                color: '#3178C6',
             },
             {
-                label: 'Vue',
-                url: '',
+                label: 'Vue.js',
+                value: 'vuedotjs',
+                color: '#4FC08D',
             },
             {
                 label: 'React',
-                url: '',
+                value: 'react',
+                color: '#61DAFB',
             },
             {
                 label: 'Next.js',
-                url: '',
+                value: 'nextdotjs',
+                color: '#000000',
             },
             {
                 label: 'Tailwind CSS',
-                url: '',
+                value: 'tailwindcss',
+                color: '#06B6D4',
             },
             {
-                label: 'Frammer Motion',
-                url: '',
+                label: 'Framer Motion',
+                value: 'framer',
+                color: '#0055FF',
             },
             {
                 label: 'SASS',
-                url: '',
+                value: 'sass',
+                color: '#CC6699',
             },
         ],
     };
@@ -65,9 +73,9 @@ export default function MyStack() {
                             >
                                 <div className="rounded-full w-10 h-10 bg-[#313131] overflow-hidden flex items-center justify-center">
                                     <img
-                                        src={`/icons/${stack.url}.svg`}
-                                        alt=""
-                                        className="w-full h-full object-cover"
+                                        src={`/icons/${stack.value}.svg`}
+                                        alt={`${stack.value}`}
+                                        className={`w-full h-full object-cover color-[${stack.color}]`}
                                     />
                                 </div>
                                 <span className="text-1xl capitalize text-[#DEDEDE]">
