@@ -6,9 +6,9 @@ const nextConfig = {
         // SVG 파일은 기본 file-loader에서 제외
         const fileLoaderRule = config.module.rules.find((rule) =>
             rule.test?.test?.('.svg')
-        );
+        )
         if (fileLoaderRule) {
-            fileLoaderRule.exclude = /\.svg$/i;
+            fileLoaderRule.exclude = /\.svg$/i
         }
 
         // SVGR 로더 추가
@@ -16,10 +16,10 @@ const nextConfig = {
             test: /\.svg$/i,
             issuer: /\.[jt]sx?$/,
             use: ['@svgr/webpack'],
-        });
+        })
 
-        return config;
+        return config
     },
-};
+}
 
-module.exports = nextConfig;
+module.exports = nextConfig
