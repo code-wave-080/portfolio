@@ -7,6 +7,19 @@ import TailwindIcon from '@/icons/tailwindcss.svg';
 import FramerIcon from '@/icons/framer.svg';
 import SassIcon from '@/icons/sass.svg';
 import StyledComponentsIcon from '@/icons/styledcomponents.svg';
+import GitIcon from '@/icons/git.svg';
+import GithubIcon from '@/icons/github.svg';
+import VercelIcon from '@/icons/vercel.svg';
+import FirebaseIcon from '@/icons/firebase.svg';
+import EslintIcon from '@/icons/eslint.svg';
+import PrettierIcon from '@/icons/prettier.svg';
+import StorybookIcon from '@/icons/storybook.svg';
+import IntellijIcon from '@/icons/intellijidea.svg';
+import EchartsIcon from '@/icons/apacheecharts.svg';
+import SlackIcon from '@/icons/slack.svg';
+import NotionIcon from '@/icons/notion.svg';
+import FigmaIcon from '@/icons/figma.svg';
+import GiraIcon from '@/icons/jira.svg';
 import React from 'react';
 
 export default function MyStack() {
@@ -20,6 +33,19 @@ export default function MyStack() {
         sass: SassIcon,
         styledComponents: StyledComponentsIcon,
         framer: FramerIcon,
+        git: GitIcon,
+        github: GithubIcon,
+        vercel: VercelIcon,
+        firebase: FirebaseIcon,
+        eslint: EslintIcon,
+        prettier: PrettierIcon,
+        storybook: StorybookIcon,
+        intellij: IntellijIcon,
+        echarts: EchartsIcon,
+        slack: SlackIcon,
+        notion: NotionIcon,
+        figma: FigmaIcon,
+        jira: GiraIcon,
     };
 
     const stacks = [
@@ -41,7 +67,7 @@ export default function MyStack() {
                 { label: 'Tailwind CSS', value: 'tailwindcss', color: '#06B6D4' },
                 { label: 'SASS', value: 'sass', color: '#CC6699' },
                 { label: 'Emotion', value: 'emotion', color: '#CC6699' },
-                { label: 'styled-components', value: 'styledcomponents', color: '#DB7093' },
+                { label: 'styled-components', value: 'styledComponents', color: '#DB7093' },
                 { label: 'Framer Motion', value: 'framer', color: '#0055FF' },
             ]
         },
