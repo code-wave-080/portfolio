@@ -1,11 +1,12 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import Banner from '@/app/components/Banner'
 import ScrollProgress from '@/app/components/ScrollProgress'
-import Footer from '@/app/components/Footer'
 import Sidebar from '@/app/components/Sidebar'
+import Banner from '@/app/components/Banner'
+import AboutMe from '@/app/components/AboutMe'
 import MyStack from '@/app/components/MyStack'
+import Footer from '@/app/components/Footer'
 
 export default function Home() {
     const [translateY, setTranslateY] = useState<number>(-100)
@@ -48,9 +49,10 @@ export default function Home() {
                     }}
                 />
             ))}
-            <div className="grid grid-rows-[0px_1fr_65px]">
-                <Sidebar />
+            <Sidebar />
+            <div className="page-">
                 <Banner />
+                <AboutMe />
                 <MyStack />
                 <Footer />
             </div>
