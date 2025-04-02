@@ -6,6 +6,7 @@ import Sidebar from '@/app/components/Sidebar'
 import Banner from '@/app/components/Banner'
 import AboutMe from '@/app/components/AboutMe'
 import MyStack from '@/app/components/MyStack'
+import MyExperience from "@/app/components/MyExperience";
 import Footer from '@/app/components/Footer'
 
 export default function Home() {
@@ -54,6 +55,7 @@ export default function Home() {
                 <Banner />
                 <AboutMe />
                 <MyStack />
+                <MyExperience />
                 <Footer />
             </div>
             <ScrollProgress value={translateY} />

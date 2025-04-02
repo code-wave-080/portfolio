@@ -8,7 +8,7 @@ export default function Footer() {
                 <p className="text-lg">언제든지 메일로 연락 주세요</p>
                 <a
                     href="mailto:codewave080@gmail.com"
-                    className="text-3xl sm:text-4xl font-anton inline-block mt-5 mb-10 hover:underline"
+                    className="text-3xl sm:text-4xl font-anton font-bold inline-block mt-5 mb-10 hover:underline"
                 >
                     codewave080@gmail.com
                 </a>
