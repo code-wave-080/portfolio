@@ -24,6 +24,13 @@
     }
 }
 
+@media (min-width: 420px) {
+    .xs\:text-6xl {
+        font-size: 3.75rem;
+        line-height: 1;
+    }
+}
+
 @media not all and (min-width: 768px) {
     .max-md\:pb-10 {
         padding-bottom: 2.5rem;
