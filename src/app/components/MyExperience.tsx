@@ -7,7 +7,7 @@ export default function MyExperience() {
                 <div className="flex items-center gap-4 mb-10 text-[#DEDEDE]">
                     <h2 className="text-xl uppercase leading-none">MY EXPERIENCE</h2>
                 </div>
-                <div className="grid gap-14">
+                <div className="grid gap-14 cursor-pointer">
                     <div className="experience-item">
                         <p className="text-xl font-bold">
                             XENOIMPACT
