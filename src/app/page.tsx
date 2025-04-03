@@ -8,6 +8,7 @@ import AboutMe from '@/app/components/AboutMe'
 import MyStack from '@/app/components/MyStack'
 import MyExperience from "@/app/components/MyExperience";
 import Footer from '@/app/components/Footer'
+import MyProjects from "@/app/components/MyProjects";
 
 export default function Home() {
     const [translateY, setTranslateY] = useState<number>(-100)
@@ -56,6 +57,7 @@ export default function Home() {
                 <AboutMe />
                 <MyStack />
                 <MyExperience />
+                <MyProjects />
                 <Footer />
             </div>
             <ScrollProgress value={translateY} />
