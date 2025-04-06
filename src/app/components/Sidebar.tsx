@@ -3,15 +3,52 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
+type MenuItem = {
+    label: string
+    value: string
+}
+
+type MenuItems = Array<MenuItem>
+
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState<boolean>(false)
-
-    const toggleMenu = () => setIsOpen((prev) => !prev)
 
     // 네비게이션 아이템 애니메이션 옵션 (stagger 효과를 줄 수 있음)
     const itemVariants = {
         hidden: { opacity: 0, y: 20 },
         visible: { opacity: 1, y: 0 },
+    }
+
+    const items: MenuItems = [
+        {
+            label: 'Home',
+            value: 'home',
+        },
+        {
+            label: 'About me',
+            value: 'about-me',
+        },
+        {
+            label: 'My stack',
+            value: 'my-stack',
+        },
+        {
+            label: 'My experience',
+            value: 'my-experience',
+        },
+        {
+            label: 'My projects',
+            value: 'my-projects',
+        }
+    ]
+
+    const toggleMenu = () => setIsOpen((prev) => !prev)
+
+    const handleScrollTo = ({value}: MenuItem) => {
+        const element = document.getElementById(value)
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        }
     }
 
     return (
@@ -61,16 +98,15 @@ export default function Navbar() {
                             // animate="visible"
                             // transition={{ staggerChildren: 0.1, delayChildren: 0.2 }}
                         >
-                            {['Home', 'About', 'Projects', 'Contact'].map(
+                            {items.map(
                                 (item) => (
                                     <motion.li
-                                        key={item}
+                                        key={item.value}
                                         variants={itemVariants}
                                         className="text-2xl text-[#DEDEDE] cursor-pointer transition-transform duration-200 hover:scale-110"
+                                        onClick={() => handleScrollTo(item)}
                                     >
-                                        <a href={`#${item.toLowerCase()}`}>
-                                            {item}
-                                        </a>
+                                        {item.label}
                                     </motion.li>
                                 )
                             )}
