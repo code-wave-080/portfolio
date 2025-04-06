@@ -2,7 +2,7 @@
 
 export default function Banner() {
     return (
-        <section className="relative overflow-hidden" id="banner">
+        <section className="relative overflow-hidden" id="home">
             <div className="container h-[100svh] min-h-[530px] max-md:pb-10 flex justify-between items-center max-md:flex-col">
                 <div className="max-md:grow max-md:flex flex flex-col justify-center items-start max-w-[544px] gap-5">
                     <h1 className="banner-title flex flex-col gap-1 text-6xl sm:text-[74px] font-bold font-sans">
