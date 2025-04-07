@@ -39,12 +39,12 @@ export default function Navbar() {
         {
             label: 'My projects',
             value: 'my-projects',
-        }
+        },
     ]
 
     const toggleMenu = () => setIsOpen((prev) => !prev)
 
-    const handleScrollTo = ({value}: MenuItem) => {
+    const handleScrollTo = ({ value }: MenuItem) => {
         const element = document.getElementById(value)
         if (element) {
             element.scrollIntoView({ behavior: 'smooth', block: 'start' })
@@ -98,18 +98,16 @@ export default function Navbar() {
                             // animate="visible"
                             // transition={{ staggerChildren: 0.1, delayChildren: 0.2 }}
                         >
-                            {items.map(
-                                (item) => (
-                                    <motion.li
-                                        key={item.value}
-                                        variants={itemVariants}
-                                        className="text-2xl text-[#DEDEDE] cursor-pointer transition-transform duration-200 hover:scale-110"
-                                        onClick={() => handleScrollTo(item)}
-                                    >
-                                        {item.label}
-                                    </motion.li>
-                                )
-                            )}
+                            {items.map((item) => (
+                                <motion.li
+                                    key={item.value}
+                                    variants={itemVariants}
+                                    className="text-2xl text-[#DEDEDE] cursor-pointer transition-transform duration-200 hover:scale-110"
+                                    onClick={() => handleScrollTo(item)}
+                                >
+                                    {item.label}
+                                </motion.li>
+                            ))}
                         </motion.ul>
                     </motion.div>
                 )}
