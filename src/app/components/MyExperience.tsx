@@ -11,7 +11,7 @@ export default function MyExperience() {
                 </div>
                 <div className="grid gap-14 cursor-pointer">
                     <div className="experience-item">
-                        <p className="text-xl font-bold">XENOIMPACT</p>
+                        <p className="text-xl">XENOIMPACT</p>
                         <div className="group">
                             <h4 className="text-4xl xs:text-6xl flex gap-4 font-anton font-bold transition-all duration-900 bg-gradient-to-r from-pink-500 to-white from-[50%] to-[50%] bg-[length:200%] bg-right bg-clip-text text-transparent group hover:bg-left">
                                 Frontend Developer
