@@ -95,7 +95,7 @@
 
 @media (min-width: 420px) {
     .xs\:text-6xl {
-        font-size: 3.75rem;
+        font-size: 40px;
         line-height: 1;
     }
 }
