@@ -85,11 +85,11 @@ export default function Navbar() {
                 {isOpen && (
                     <motion.div
                         key="menu"
-                        initial={{ x: '100%', borderRadius: '100px' }} // 처음엔 둥글게
-                        animate={{ x: 0, borderRadius: '0px' }} // 열릴 때 네모로 변경
-                        exit={{ x: '100%', borderRadius: '100px' }} // 닫힐 때 다시 둥글게
+                        initial={{ x: '100%', borderRadius: '100px' }}
+                        animate={{ x: 0, borderRadius: '0px' }}
+                        exit={{ x: '100%', borderRadius: '100px' }}
                         transition={{ duration: 0.4, ease: 'easeOut' }}
-                        className="fixed top-0 right-0 w-[450px] h-full bg-[#313131] z-[4] flex flex-col items-center justify-center"
+                        className="fixed top-0 right-0 w-[90vw] sm:w-[450px] min-w-[280px] max-w-full h-full bg-[#313131] z-[4] flex flex-col items-center justify-center"
                     >
                         {/* 메뉴 아이템 리스트 */}
                         <motion.ul
