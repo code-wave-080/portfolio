@@ -6,5 +6,5 @@ export default function Loading() {
                 <div className="h-screen bg-pink-500" />
             </div>
         </div>
-    );
+    )
 }
