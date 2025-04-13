@@ -67,7 +67,7 @@ export default function MyProjects() {
                             border-2 rounded-[20px] w-[calc(50%-20px)] h-[500px]`}
                         >
                             <div className="bg-wrap">
-                                <img src={item.img} alt="project-1" />
+                                <img src={item.img} alt={item.title} />
                             </div>
                             <div className="txt-item">
                                 <p>{item.title}</p>
