@@ -4,12 +4,13 @@ interface ProjectPageProps {
     }
 }
 
-const delay = (ms: number) => new Promise((res) => setTimeout(res, ms))
-
 export default async function ProjectPage({ params }: ProjectPageProps) {
-    const { id } = params
+    const {id} = params;
+    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/meta/${id}`, {
+        cache: 'no-store'
+    })
 
-    await delay(1000)
+    const data = await response.json();
 
-    return <div>프로젝트 상세 페이지 - ID: {id}</div>
+    return <div className="text-white">프로젝트 상세 페이지 - title: {data.title} - description: {data.description}</div>
 }
