@@ -10,7 +10,7 @@ type MenuItem = {
 
 type MenuItems = Array<MenuItem>
 
-export default function Navbar() {
+export default function Sidebar() {
     const [isOpen, setIsOpen] = useState<boolean>(false)
 
     // 네비게이션 아이템 애니메이션 옵션 (stagger 효과를 줄 수 있음)
