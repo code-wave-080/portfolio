@@ -4,6 +4,7 @@ import './globals.css'
 import Sidebar from "@/app/components/Sidebar";
 import Footer from "@/app/components/Footer";
 import React from "react";
+import ScrollProgress from "@/app/components/ScrollProgress";
 
 const geistSans = Geist({
     variable: '--font-geist-sans',
@@ -32,6 +33,8 @@ export default function RootLayout({
                     <Sidebar />
                     <main className="flex-1">{children}</main>
                     <Footer />
+
+                    <ScrollProgress />
                 </div>
             </body>
         </html>
