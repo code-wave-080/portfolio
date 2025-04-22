@@ -1,12 +1,12 @@
-'use client';
-import { useGSAP } from '@gsap/react';
-import gsap from 'gsap';
-import { useRef } from 'react';
+'use client'
+import { useGSAP } from '@gsap/react'
+import gsap from 'gsap'
+import { useRef } from 'react'
 
-gsap.registerPlugin(useGSAP);
+gsap.registerPlugin(useGSAP)
 
 const ParticleBackground = () => {
-    const particlesRef = useRef<HTMLDivElement[]>([]);
+    const particlesRef = useRef<HTMLDivElement[]>([])
 
     useGSAP(() => {
         particlesRef.current.forEach((particle) => {
@@ -16,7 +16,7 @@ const ParticleBackground = () => {
                 opacity: Math.random(),
                 left: Math.random() * window.innerWidth,
                 top: Math.random() * (window.innerHeight + 1),
-            });
+            })
 
             gsap.to(particle, {
                 y: window.innerHeight,
@@ -25,9 +25,9 @@ const ParticleBackground = () => {
                 repeat: -1,
                 ease: 'none',
                 // yoyo: true,
-            });
-        });
-    }, []);
+            })
+        })
+    }, [])
 
     return (
         <div className="fixed inset-0 z-0 pointer-events-none">
@@ -35,13 +35,13 @@ const ParticleBackground = () => {
                 <div
                     key={i}
                     ref={(el) => {
-                        particlesRef.current.push(el!);
+                        particlesRef.current.push(el!)
                     }}
                     className="absolute rounded-full bg-white"
                 />
             ))}
         </div>
-    );
-};
+    )
+}
 
-export default ParticleBackground;
+export default ParticleBackground

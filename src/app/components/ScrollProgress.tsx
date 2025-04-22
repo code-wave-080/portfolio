@@ -1,29 +1,29 @@
 'use client'
 
-import {useEffect, useRef} from "react";
+import { useEffect, useRef } from 'react'
 
 export default function ScrollProgress() {
-    const scrollBarRef = useRef<HTMLDivElement>(null);
+    const scrollBarRef = useRef<HTMLDivElement>(null)
 
     useEffect(() => {
         const handleScroll = () => {
             if (scrollBarRef.current) {
-                const { scrollHeight, clientHeight } = document.documentElement;
-                const scrollableHeight = scrollHeight - clientHeight;
-                const scrollY = window.scrollY;
-                const scrollProgress = (scrollY / scrollableHeight) * 100;
+                const { scrollHeight, clientHeight } = document.documentElement
+                const scrollableHeight = scrollHeight - clientHeight
+                const scrollY = window.scrollY
+                const scrollProgress = (scrollY / scrollableHeight) * 100
 
                 scrollBarRef.current.style.transform = `translateY(-${
                     100 - scrollProgress
-                }%)`;
+                }%)`
             }
-        };
+        }
 
-        handleScroll();
+        handleScroll()
 
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+        window.addEventListener('scroll', handleScroll)
+        return () => window.removeEventListener('scroll', handleScroll)
+    }, [])
 
     return (
         <div className="fixed top-[50svh] right-[2%] -translate-y-1/2 w-1.5 h-[100px] rounded-full bg-[#313131] overflow-hidden">
