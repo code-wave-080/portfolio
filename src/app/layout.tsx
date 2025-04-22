@@ -1,10 +1,12 @@
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import './globals.css'
-import Sidebar from "@/app/components/Sidebar";
-import Footer from "@/app/components/Footer";
-import React from "react";
-import ScrollProgress from "@/app/components/ScrollProgress";
+import Sidebar from '@/app/components/Sidebar'
+import Footer from '@/app/components/Footer'
+import React from 'react'
+import ScrollProgress from '@/app/components/ScrollProgress'
+import Preloader from '@/components/Preloader'
+import ParticleBackground from '@/components/ParticleBackground'
 
 const geistSans = Geist({
     variable: '--font-geist-sans',
@@ -29,13 +31,13 @@ export default function RootLayout({
             <body
                 className={`${geistSans.variable} ${geistMono.variable} antialiased`}
             >
-                <div className="flex min-h-screen flex-col">
-                    <Sidebar />
-                    <main className="flex-1">{children}</main>
-                    <Footer />
+                <Sidebar />
+                <main>{children}</main>
+                <Footer />
 
-                    <ScrollProgress />
-                </div>
+                <Preloader />
+                <ScrollProgress />
+                <ParticleBackground />
             </body>
         </html>
     )

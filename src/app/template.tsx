@@ -1,42 +1,34 @@
 'use client'
 
-import {useEffect, useState} from "react";
+import { useGSAP } from '@gsap/react'
+import gsap from 'gsap'
 
-export default function Template({children}: {children: React.ReactNode}) {
-    const [stars, setStars] = useState<
-        { top: string; left: string; size: string; animate: boolean }[]
-    >([])
+gsap.registerPlugin(useGSAP)
 
-    useEffect(() => {
-        const generatedStars = Array.from({ length: 50 }, () => ({
-            top: `${Math.random() * 100}%`,
-            left: `${Math.random() * 100}%`,
-            size: `${Math.random() * 3}px`,
-            animate: Math.random() > 0.5, // 50% 확률로 깜빡이는 애니메이션 적용
-        }))
-        setStars(generatedStars)
-    }, [])
+export default function Template({ children }: { children: React.ReactNode }) {
+    useGSAP(() => {
+        const tl = gsap.timeline()
+
+        tl.to('.page-transition--inner', {
+            yPercent: 0,
+            duration: 0.2,
+        })
+            .to('.page-transition--inner', {
+                yPercent: -100,
+                duration: 0.2,
+            })
+            .to('.page-transition', {
+                yPercent: -100,
+            })
+    })
 
     return (
-        <>
-            <div className="fixed inset-0 -z-50 bg-[#212121] hide-scrollbar pointer-events-none">
-                {/* 별 배경 */}
-                {stars.map((star, i) => (
-                    <div
-                        key={i}
-                        className={`absolute bg-white rounded-full ${
-                            star.animate ? 'twinkle-move' : ''
-                        }`}
-                        style={{
-                            width: star.size,
-                            height: star.size,
-                            top: star.top,
-                            left: star.left,
-                        }}
-                    />
-                ))}
+        <div>
+            <div className="page-transition w-screen h-screen fixed top-0 left-0 bg-[#303030] z-[5]">
+                <div className="page-transition--inner w-screen h-screen fixed top-0 left-0 bg-pink-500 z-[5] translate-y-full"></div>
             </div>
+
             {children}
-        </>
+        </div>
     )
 }
