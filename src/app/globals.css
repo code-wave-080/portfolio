@@ -1,5 +1,10 @@
 @import 'tailwindcss';
 
+body {
+    background-color: hsl(0 0% 13%);
+    color: white;
+}
+
 .container {
     width: 100%;
     margin-right: auto;
@@ -130,32 +135,4 @@
     .hide-scrollbar::-webkit-scrollbar {
         display: none;
     }
-}
-
-@keyframes twinkle {
-    0% {
-        opacity: 0.3;
-        transform: translateY(0px) scale(1);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(-2px) scale(1.2);
-    }
-}
-
-.twinkle-move {
-    animation: twinkle 1.5s infinite alternate ease-in-out;
-}
-
-@keyframes slideWrapperUp {
-    0% {
-        transform: translateY(0%);
-    }
-    100% {
-        transform: translateY(-200vh);
-    }
-}
-
-.animate-slide-wrapper-up {
-    animation: slideWrapperUp 1s ease-in-out forwards;
 }
