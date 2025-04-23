@@ -2,9 +2,6 @@ export default function AboutMe() {
     return (
         <section className="pb-section text-[#DEDEDE]" id="about-me">
             <div className="container">
-                {/*<h2 className="text-4xl md:text-6xl font-thin mb-20 slide-up-and-fade">
-                    "코드도 UX도 녹이 슨다."
-                </h2>*/}
                 <p
                     className="text-lg pb-3 border-b text-muted-foreground slide-up-and-fade"
                     style={{
@@ -37,9 +34,6 @@ export default function AboutMe() {
                                     opacity: 1,
                                 }}
                             >
-                                <strong>
-                                    &quot;코드도 UX도 녹이 슨다.&quot;
-                                </strong>{' '}
                                 저는 안주하지 않고, 지속 가능한 개발을 끊임없이
                                 고민하는 프론트엔드 개발자입니다.
                             </p>
