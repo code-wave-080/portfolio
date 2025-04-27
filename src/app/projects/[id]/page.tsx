@@ -1,8 +1,14 @@
 'use client'
 
 import TransitionLink from '@/components/TransitionLink'
-import { use, useRef } from 'react'
+import { use, useEffect, useRef, useState } from 'react'
 import { ChevronLeft } from 'lucide-react'
+
+interface Project {
+    title: string
+    description: string
+    year: string
+}
 
 interface ProjectPageProps {
     id: string
@@ -15,6 +21,17 @@ export default function ProjectPage({
 }) {
     const { id } = use(params) as ProjectPageProps
     const containerRef = useRef<HTMLDivElement>(null)
+    const [project, setProject] = useState<Project | null>(null)
+
+    useEffect(() => {
+        const fetchProject = async () => {
+            const res = await fetch(`/api/meta/${id}`)
+            const data = await res.json()
+            setProject(data)
+        }
+
+        fetchProject().catch(console.error)
+    }, [id])
 
     return (
         <section className="pt-5 pb-14">
@@ -33,13 +50,15 @@ export default function ProjectPage({
                 </TransitionLink>
 
                 <div
-                    className="top-0 min-h-[calc(100svh-100px)] flex"
+                    className="top-0 min-h-[calc(100svh-100px)] flex mt-16"
                     id="info"
                 >
                     <div className="relative w-full">
                         <div className="flex items-start gap-6 mx-auto mb-10 max-w-[635px]">
-                            <h1 className="fade-in-later opacity-0 text-4xl md:text-[60px] leading-none font-anton overflow-hidden">
-                                <span className="inline-block">{id}</span>
+                            <h1 className="fade-in-later text-4xl md:text-[60px] leading-none overflow-hidden">
+                                <span className="inline-block text-[#DEDEDE]">
+                                    {project?.title}
+                                </span>
                             </h1>
 
                             <div className="fade-in-later opacity-0 flex gap-2"></div>
