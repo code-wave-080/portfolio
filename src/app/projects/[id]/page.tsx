@@ -2,12 +2,19 @@
 
 import TransitionLink from '@/components/TransitionLink'
 import { use, useEffect, useRef, useState } from 'react'
-import { ChevronLeft } from 'lucide-react'
+import { ChevronLeft, ExternalLink } from 'lucide-react'
+import { useGSAP } from '@gsap/react'
+import gsap from 'gsap'
 
 interface Project {
     title: string
     description: string
+    url: string
     year: string
+    techStack: Array<string>
+    images: Array<string>
+    role: string
+    sourceCode: string
 }
 
 interface ProjectPageProps {
@@ -32,6 +39,31 @@ export default function ProjectPage({
 
         fetchProject().catch(console.error)
     }, [id])
+
+    console.log(project)
+
+    useGSAP(
+        () => {
+            if (!containerRef.current) {
+                return
+            }
+
+            gsap.set('.fade-in-later', {
+                autoAlpha: 0,
+                y: 30,
+            })
+            const tl = gsap.timeline({
+                delay: 0.5,
+            })
+
+            tl.to('.fade-in-later', {
+                autoAlpha: 1,
+                y: 0,
+                stagger: 0.1,
+            })
+        },
+        { scope: containerRef }
+    )
 
     return (
         <section className="pt-5 pb-14">
@@ -61,7 +93,18 @@ export default function ProjectPage({
                                 </span>
                             </h1>
 
-                            <div className="fade-in-later opacity-0 flex gap-2"></div>
+                            <div className="fade-in-later opacity-0 flex gap-2">
+                                {project?.url && (
+                                    <a
+                                        href={project?.url}
+                                        target="_blank"
+                                        rel="noreferrer noopener"
+                                        className="hover:text-pink-500"
+                                    >
+                                        <ExternalLink size={30} />
+                                    </a>
+                                )}
+                            </div>
                         </div>
 
                         <div className="max-w-[635px] space-y-7 pb-20 mx-auto">
