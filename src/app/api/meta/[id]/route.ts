@@ -5,7 +5,9 @@ const metadataList = [
         id: '1',
         title: '제목: 첫 번째',
         description: '설명: 첫 번째 항목입니다.',
+        year: '2024',
         url: 'https://example.com/1',
+        techStacks: ['React', 'Sass', 'Firebase', 'Vercel'],
     },
     {
         id: '2',
