@@ -7,11 +7,12 @@ import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 
 interface Project {
+    id: string
     title: string
     description: string
     url: string
     year: string
-    techStack: Array<string>
+    techStacks: Array<string>
     images: Array<string>
     role: string
     sourceCode: string
@@ -112,20 +113,33 @@ export default function ProjectPage({
                                 <p className="text-muted-foreground font-anton mb-3">
                                     Year
                                 </p>
+
+                                <div className="text-lg">{project?.year}</div>
                             </div>
                             <div className="fade-in-later">
                                 <p className="text-muted-foreground font-anton mb-3">
                                     Tech & Technique
                                 </p>
 
-                                <div className="text-lg"></div>
+                                <div className="inline-flex items-center gap-2 text-lg">
+                                    {project?.techStacks.map((stack) => (
+                                        <div
+                                            className="border border-gray-300 rounded-full px-3 py-1 text-sm"
+                                            key={stack}
+                                        >
+                                            {stack}
+                                        </div>
+                                    ))}
+                                </div>
                             </div>
                             <div className="fade-in-later">
                                 <p className="text-muted-foreground font-anton mb-3">
                                     Description
                                 </p>
 
-                                <div className="text-lg prose-xl markdown-text"></div>
+                                <div className="text-lg prose-xl markdown-text">
+                                    {/*{parse(project.description)}*/}
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -134,7 +148,8 @@ export default function ProjectPage({
                 <div
                     className="fade-in-later relative flex flex-col gap-2 max-w-[800px] mx-auto"
                     id="images"
-                ></div>
+                >
+                </div>
             </div>
         </section>
     )
