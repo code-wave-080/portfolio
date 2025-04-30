@@ -148,8 +148,7 @@ export default function ProjectPage({
                 <div
                     className="fade-in-later relative flex flex-col gap-2 max-w-[800px] mx-auto"
                     id="images"
-                >
-                </div>
+                ></div>
             </div>
         </section>
     )
