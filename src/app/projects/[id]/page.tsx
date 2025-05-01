@@ -4,6 +4,7 @@ import TransitionLink from '@/components/TransitionLink'
 import { use, useEffect, useRef, useState } from 'react'
 import { ChevronLeft, ExternalLink } from 'lucide-react'
 import { useGSAP } from '@gsap/react'
+import parse from 'html-react-parser'
 import gsap from 'gsap'
 
 interface Project {
@@ -13,9 +14,9 @@ interface Project {
     url: string
     year: string
     techStacks: Array<string>
+    mainFeatures: string
+    technicalImprovements: string
     images: Array<string>
-    role: string
-    sourceCode: string
 }
 
 interface ProjectPageProps {
@@ -138,7 +139,29 @@ export default function ProjectPage({
                                 </p>
 
                                 <div className="text-lg prose-xl markdown-text">
-                                    {/*{parse(project.description)}*/}
+                                    {project?.description}
+                                </div>
+                            </div>
+                            <div className="fade-in-later">
+                                <p className="text-muted-foreground font-anton mb-3">
+                                    Main Features
+                                </p>
+
+                                <div className="text-lg prose-xl markdown-text">
+                                    {project?.mainFeatures
+                                        ? parse(project?.mainFeatures)
+                                        : null}
+                                </div>
+                            </div>
+                            <div className="fade-in-later">
+                                <p className="text-muted-foreground font-anton mb-3">
+                                    Main Features
+                                </p>
+
+                                <div className="text-lg prose-xl markdown-text">
+                                    {project?.technicalImprovements
+                                        ? parse(project?.technicalImprovements)
+                                        : null}
                                 </div>
                             </div>
                         </div>
