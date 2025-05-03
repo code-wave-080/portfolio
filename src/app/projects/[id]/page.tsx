@@ -112,14 +112,14 @@ export default function ProjectPage({
                         <div className="max-w-[635px] space-y-7 pb-20 mx-auto">
                             <div className="fade-in-later">
                                 <p className="text-muted-foreground font-anton mb-3">
-                                    Year
+                                    날짜
                                 </p>
 
                                 <div className="text-lg">{project?.year}</div>
                             </div>
                             <div className="fade-in-later">
                                 <p className="text-muted-foreground font-anton mb-3">
-                                    Tech & Technique
+                                    기술 스택
                                 </p>
 
                                 <div className="inline-flex items-center gap-2 text-lg">
@@ -135,7 +135,7 @@ export default function ProjectPage({
                             </div>
                             <div className="fade-in-later">
                                 <p className="text-muted-foreground font-anton mb-3">
-                                    Description
+                                    설명
                                 </p>
 
                                 <div className="text-lg prose-xl markdown-text">
@@ -144,7 +144,7 @@ export default function ProjectPage({
                             </div>
                             <div className="fade-in-later">
                                 <p className="text-muted-foreground font-anton mb-3">
-                                    Main Features
+                                    주요 기능
                                 </p>
 
                                 <div className="text-lg prose-xl markdown-text">
@@ -155,7 +155,7 @@ export default function ProjectPage({
                             </div>
                             <div className="fade-in-later">
                                 <p className="text-muted-foreground font-anton mb-3">
-                                    Main Features
+                                    기술적 개선 및 구현 포인트
                                 </p>
 
                                 <div className="text-lg prose-xl markdown-text">
