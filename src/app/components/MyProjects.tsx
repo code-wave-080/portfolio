@@ -20,19 +20,19 @@ export default function MyProjects() {
         {
             id: '1',
             img: '/images/project-1.png',
-            title: 'BLOG',
+            title: 'CARD',
             stacks: ['React', 'Sass', 'Firebase'],
         },
         {
             id: '2',
             img: '/images/project-2.png',
-            title: 'WEDDING',
+            title: 'TWITTER',
             stacks: ['React', 'Sass', 'Firebase'],
         },
         {
             id: '3',
             img: '/images/project-3.png',
-            title: 'CARD',
+            title: 'WEDDING',
             stacks: ['React', 'Sass', 'Firebase'],
         },
         {
