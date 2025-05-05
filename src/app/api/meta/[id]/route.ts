@@ -29,9 +29,33 @@ const metadataList = [
     },
     {
         id: '2',
-        title: '제목: 두 번째',
-        description: '설명: 두 번째 항목입니다.',
+        title: 'Twitter',
+        description:
+            '실시간 타임라인, OAuth 로그인, 해시태그 검색 등 SNS 서비스의 핵심 기능을 React와 Firebase 기반으로 구현한 프로젝트입니다. Firestore 실시간 동기화, 이미지 업로드, 사용자 인증, 다국어 처리 등 다양한 기능을 통해 사용자 중심의 흐름과 상태 관리 구조를 직접 설계했으며 모바일 대응 및 전역 상태 분리를 고려한 확장 가능한 구조로 구성했습니다.',
+        year: '2024',
         url: 'https://example.com/2',
+        techStacks: ['React', 'typescript', 'SCSS', 'Firebase', 'Recoil', 'Vercel'],
+        mainFeatures: `
+            <ul class="list-disc pl-6">
+                <li>홈 타임라인: Firestore onSnapshot 기반 실시간 트윗 목록 표시 및 무한 스크롤 UI 구성</li>
+                <li>트윗 CRUD 기능: Firebase Storage를 활용한 이미지 업로드 포함 글 작성/수정/삭제 처리</li>
+                <li>OAuth 로그인 및 인증: Google OAuth 및 이메일 기반 회원가입/로그인 구현, 인증 여부에 따른 페이지 접근 제어</li>
+                <li>프로필 및 좋아요 탭: 사용자 정보 확인, 좋아요한 게시글 모아보기 탭 구성</li>
+                <li>해시태그 시스템: 글 작성 시 자동 해시태그 추출, 검색/탭 필터링 기능 구현</li>
+                <li>다국어 설정 기능: 전역 텍스트 상태 관리 및 언어 변경 시 즉시 반영</li>
+                <li>반응형 웹 구현: SCSS와 미디어 쿼리를 통해 모바일/데스크톱 UI 대응</li>
+            </ul>
+        `,
+        technicalImprovements: `
+            <ul class="list-disc pl-6">
+                <li>실시간 데이터 처리: Firestore onSnapshot 구독을 활용한 실시간 타임라인 렌더링</li>
+                <li>이미지 업로드 처리: Firebase Storage 연동으로 이미지 등록/수정/삭제 흐름 구성</li>
+                <li>상태 분리 관리 전략: 인증 정보는 Recoil, UI/언어 상태는 Context API로 분리하여 역할 명확화</li>
+                <li>라우팅 흐름 최적화: 인증 여부에 따라 접근 제어하는 AuthGuard 유사 구조 구현</li>
+                <li>다국어 처리: 언어 설정 전역화 및 즉시 반영 가능한 전환 구조 구현</li>
+                <li>모바일 대응 설계: 미디어 쿼리 기반 UI 대응 및 유동적 레이아웃 구성</li>
+            </ul>
+        `,
     },
     {
         id: '3',
