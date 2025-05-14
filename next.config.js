@@ -2,6 +2,7 @@
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+    transpilePackages: ['three'],
     webpack(config) {
         // SVG 파일은 기본 file-loader에서 제외
         const fileLoaderRule = config.module.rules.find((rule) =>
