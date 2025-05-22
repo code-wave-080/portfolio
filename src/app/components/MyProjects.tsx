@@ -19,7 +19,7 @@ export default function MyProjects() {
     const items: ProjectItems = [
         {
             id: '1',
-            img: '/images/project-1.png',
+            img: '/images/mcard_1.png',
             title: 'CARD',
             stacks: ['React', 'Sass', 'Firebase'],
         },
@@ -68,6 +68,7 @@ export default function MyProjects() {
                         >
                             <div className="bg-wrap">
                                 <img src={item.img} alt={item.title} />
+                                <div className="absolute inset-0 bg-black/30"></div>
                             </div>
                             <div className="txt-item">
                                 <p>{item.title}</p>
