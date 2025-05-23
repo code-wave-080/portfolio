@@ -19,7 +19,7 @@ export default function MyProjects() {
     const items: ProjectItems = [
         {
             id: '1',
-            img: '/images/mcard_1.png',
+            img: '/images/mcard.png',
             title: 'CARD',
             stacks: ['React', 'Sass', 'Firebase'],
         },
