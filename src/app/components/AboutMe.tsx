@@ -1,7 +1,58 @@
+import {useGSAP} from "@gsap/react";
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/all';
+import React from 'react';
+
+gsap.registerPlugin(ScrollTrigger, useGSAP);
+
 export default function AboutMe() {
+    const containerRef = React.useRef<HTMLDivElement>(null);
+
+    useGSAP(
+        () => {
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    id: 'about-me-in',
+                    trigger: containerRef.current,
+                    start: 'top 70%',
+                    end: 'bottom bottom',
+                    scrub: 0.5,
+                },
+            });
+
+            tl.from('.slide-up-and-fade', {
+                y: 150,
+                opacity: 0,
+                stagger: 0.05,
+            });
+        },
+        { scope: containerRef },
+    );
+
+    useGSAP(
+        () => {
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    id: 'about-me-out',
+                    trigger: containerRef.current,
+                    start: 'bottom 50%',
+                    end: 'bottom 10%',
+                    scrub: 0.5,
+                },
+            });
+
+            tl.to('.slide-up-and-fade', {
+                y: -150,
+                opacity: 0,
+                stagger: 0.02,
+            });
+        },
+        { scope: containerRef },
+    );
+
     return (
         <section className="pb-section text-[#DEDEDE]" id="about-me">
-            <div className="container">
+            <div ref={containerRef} className="container">
                 <p
                     className="text-lg pb-3 border-b text-muted-foreground slide-up-and-fade"
                     style={{
