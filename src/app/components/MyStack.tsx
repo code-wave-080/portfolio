@@ -20,9 +20,61 @@ import SlackIcon from '@/icons/slack.svg'
 import NotionIcon from '@/icons/notion.svg'
 import FigmaIcon from '@/icons/figma.svg'
 import GiraIcon from '@/icons/jira.svg'
-import React from 'react'
+import React, {useRef} from 'react'
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/all';
+
+gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 export default function MyStack() {
+    const containerRef = useRef<HTMLDivElement>(null);
+
+    useGSAP(
+        () => {
+            const slideUpEl =
+                containerRef.current?.querySelectorAll('.slide-up');
+
+            if (!slideUpEl?.length) return;
+
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: containerRef.current,
+                    start: 'top 90%',
+                    end: 'bottom 90%',
+                    scrub: 0.5,
+                },
+            });
+
+            tl.from('.slide-up', {
+                opacity: 0,
+                y: 40,
+                ease: 'none',
+                stagger: 0.4,
+            });
+        },
+        { scope: containerRef },
+    );
+
+    useGSAP(
+        () => {
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: containerRef.current,
+                    start: 'bottom 50%',
+                    end: 'bottom 10%',
+                    scrub: 1,
+                },
+            });
+
+            tl.to(containerRef.current, {
+                y: -150,
+                opacity: 0,
+            });
+        },
+        { scope: containerRef },
+    );
+
     const iconMap: Record<string, React.FC<React.SVGProps<SVGSVGElement>>> = {
         javascript: JavascriptIcon,
         typescript: TypescriptIcon,
@@ -111,7 +163,7 @@ export default function MyStack() {
     ]
 
     return (
-        <section className="pb-section" id="my-stack">
+        <section className="pb-section" id="my-stack" ref={containerRef}>
             <div className="container">
                 <div className="flex items-center gap-4 mb-10 text-[#DEDEDE]">
                     <h2 className="text-xl uppercase leading-none">MY STACK</h2>
