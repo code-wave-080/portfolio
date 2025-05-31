@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useRouter } from 'next/navigation'
 
 type MenuItem = {
     label: string
@@ -11,6 +12,7 @@ type MenuItem = {
 type MenuItems = Array<MenuItem>
 
 export default function Sidebar() {
+    const router = useRouter()
     const [isOpen, setIsOpen] = useState<boolean>(false)
 
     // 네비게이션 아이템 애니메이션 옵션 (stagger 효과를 줄 수 있음)
@@ -46,8 +48,12 @@ export default function Sidebar() {
 
     const handleScrollTo = ({ value }: MenuItem) => {
         const element = document.getElementById(value)
+
         if (element) {
             element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        } else {
+            router.push(`/#${value}`)
+            setIsOpen(false)
         }
     }
 
