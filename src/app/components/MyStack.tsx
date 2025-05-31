@@ -20,22 +20,22 @@ import SlackIcon from '@/icons/slack.svg'
 import NotionIcon from '@/icons/notion.svg'
 import FigmaIcon from '@/icons/figma.svg'
 import GiraIcon from '@/icons/jira.svg'
-import React, {useRef} from 'react'
-import { useGSAP } from '@gsap/react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/all';
+import React, { useRef } from 'react'
+import { useGSAP } from '@gsap/react'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/all'
 
-gsap.registerPlugin(ScrollTrigger, useGSAP);
+gsap.registerPlugin(ScrollTrigger, useGSAP)
 
 export default function MyStack() {
-    const containerRef = useRef<HTMLDivElement>(null);
+    const containerRef = useRef<HTMLDivElement>(null)
 
     useGSAP(
         () => {
             const slideUpEl =
-                containerRef.current?.querySelectorAll('.slide-up');
+                containerRef.current?.querySelectorAll('.slide-up')
 
-            if (!slideUpEl?.length) return;
+            if (!slideUpEl?.length) return
 
             const tl = gsap.timeline({
                 scrollTrigger: {
@@ -44,17 +44,17 @@ export default function MyStack() {
                     end: 'bottom 90%',
                     scrub: 0.5,
                 },
-            });
+            })
 
             tl.from('.slide-up', {
                 opacity: 0,
                 y: 40,
                 ease: 'none',
                 stagger: 0.4,
-            });
+            })
         },
-        { scope: containerRef },
-    );
+        { scope: containerRef }
+    )
 
     useGSAP(
         () => {
@@ -65,15 +65,15 @@ export default function MyStack() {
                     end: 'bottom 10%',
                     scrub: 1,
                 },
-            });
+            })
 
             tl.to(containerRef.current, {
                 y: -150,
                 opacity: 0,
-            });
+            })
         },
-        { scope: containerRef },
-    );
+        { scope: containerRef }
+    )
 
     const iconMap: Record<string, React.FC<React.SVGProps<SVGSVGElement>>> = {
         javascript: JavascriptIcon,

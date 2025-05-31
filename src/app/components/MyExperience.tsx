@@ -1,12 +1,12 @@
-import React, {useRef} from 'react'
-import { useGSAP } from '@gsap/react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/all';
+import React, { useRef } from 'react'
+import { useGSAP } from '@gsap/react'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/all'
 
-gsap.registerPlugin(useGSAP, ScrollTrigger);
+gsap.registerPlugin(useGSAP, ScrollTrigger)
 
 export default function MyExperience() {
-    const containerRef = useRef<HTMLDivElement>(null);
+    const containerRef = useRef<HTMLDivElement>(null)
 
     useGSAP(
         () => {
@@ -18,16 +18,16 @@ export default function MyExperience() {
                     toggleActions: 'restart none none reverse',
                     scrub: 1,
                 },
-            });
+            })
 
             tl.from('.experience-item', {
                 y: 50,
                 opacity: 0,
                 stagger: 0.3,
-            });
+            })
         },
-        { scope: containerRef },
-    );
+        { scope: containerRef }
+    )
 
     useGSAP(
         () => {
@@ -38,15 +38,15 @@ export default function MyExperience() {
                     end: 'bottom 20%',
                     scrub: 1,
                 },
-            });
+            })
 
             tl.to(containerRef.current, {
                 y: -150,
                 opacity: 0,
-            });
+            })
         },
-        { scope: containerRef },
-    );
+        { scope: containerRef }
+    )
 
     return (
         <section className="pb-section text-[#DEDEDE]" id="my-experience">

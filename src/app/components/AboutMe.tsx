@@ -1,12 +1,12 @@
-import {useGSAP} from "@gsap/react";
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/all';
-import React from 'react';
+import { useGSAP } from '@gsap/react'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/all'
+import React from 'react'
 
-gsap.registerPlugin(ScrollTrigger, useGSAP);
+gsap.registerPlugin(ScrollTrigger, useGSAP)
 
 export default function AboutMe() {
-    const containerRef = React.useRef<HTMLDivElement>(null);
+    const containerRef = React.useRef<HTMLDivElement>(null)
 
     useGSAP(
         () => {
@@ -18,16 +18,16 @@ export default function AboutMe() {
                     end: 'bottom bottom',
                     scrub: 0.5,
                 },
-            });
+            })
 
             tl.from('.slide-up-and-fade', {
                 y: 150,
                 opacity: 0,
                 stagger: 0.05,
-            });
+            })
         },
-        { scope: containerRef },
-    );
+        { scope: containerRef }
+    )
 
     useGSAP(
         () => {
@@ -39,16 +39,16 @@ export default function AboutMe() {
                     end: 'bottom 10%',
                     scrub: 0.5,
                 },
-            });
+            })
 
             tl.to('.slide-up-and-fade', {
                 y: -150,
                 opacity: 0,
                 stagger: 0.02,
-            });
+            })
         },
-        { scope: containerRef },
-    );
+        { scope: containerRef }
+    )
 
     return (
         <section className="pb-section text-[#DEDEDE]" id="about-me">

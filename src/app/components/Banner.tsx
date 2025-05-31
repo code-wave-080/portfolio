@@ -1,14 +1,14 @@
 'use client'
 
-import { useGSAP } from '@gsap/react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/all';
-import React from "react";
+import { useGSAP } from '@gsap/react'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/all'
+import React from 'react'
 
-gsap.registerPlugin(ScrollTrigger, useGSAP);
+gsap.registerPlugin(ScrollTrigger, useGSAP)
 
 export default function Banner() {
-    const containerRef = React.useRef<HTMLDivElement>(null);
+    const containerRef = React.useRef<HTMLDivElement>(null)
 
     useGSAP(
         () => {
@@ -19,20 +19,23 @@ export default function Banner() {
                     end: 'bottom 10%',
                     scrub: 1,
                 },
-            });
+            })
 
             tl.fromTo(
                 '.slide-up-and-fade',
                 { y: 0 },
-                { y: -150, opacity: 0, stagger: 0.02 },
-            );
+                { y: -150, opacity: 0, stagger: 0.02 }
+            )
         },
-        { scope: containerRef },
-    );
+        { scope: containerRef }
+    )
 
     return (
         <section className="relative overflow-hidden" id="home">
-            <div ref={containerRef} className="container h-[100svh] min-h-[530px] max-md:pb-10 flex justify-between items-center max-md:flex-col">
+            <div
+                ref={containerRef}
+                className="container h-[100svh] min-h-[530px] max-md:pb-10 flex justify-between items-center max-md:flex-col"
+            >
                 <div className="max-md:grow max-md:flex flex flex-col justify-center items-start max-w-[544px] gap-5">
                     <h1 className="banner-title flex flex-col gap-1 text-6xl sm:text-[74px] font-bold font-sans">
                         <span className="text-pink-500">FRONTEND</span>
