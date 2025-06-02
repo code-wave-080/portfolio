@@ -29,7 +29,7 @@ export default function MyProjects() {
             title: 'WEDDING',
             stacks: ['React', 'Sass', 'Firebase'],
         },
-        {
+        /*{
             id: '3',
             img: '/images/project-3.png',
             title: 'TWITTER',
@@ -40,7 +40,7 @@ export default function MyProjects() {
             img: '/images/project-4.png',
             title: 'BLOG',
             stacks: ['React', 'Sass', 'Firebase'],
-        },
+        },*/
     ]
 
     function handleProjectNavigate({ id }: ProjectItem) {
