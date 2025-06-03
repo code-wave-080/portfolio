@@ -61,7 +61,7 @@ const metadataList = [
                 <li>UX 향상: 명확한 진행 피드백, 정보 공유 편의성, 다양한 사용자 환경 대응 고려</li>
             </ul>
         `,
-        images: []
+        images: [],
     },
     {
         id: '3',
