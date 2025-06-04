@@ -37,11 +37,11 @@ export default function Banner() {
                 className="container h-[100svh] min-h-[530px] max-md:pb-10 flex justify-between items-center max-md:flex-col"
             >
                 <div className="max-md:grow max-md:flex flex flex-col justify-center items-start max-w-[544px] gap-5">
-                    <h1 className="banner-title flex flex-col gap-1 text-6xl sm:text-[74px] font-bold font-sans">
+                    <h1 className="banner-title flex flex-col gap-1 text-6xl sm:text-[74px] font-bold font-sans slide-up-and-fade">
                         <span className="text-pink-500">FRONTEND</span>
                         <span className="text-[#DEDEDE]">DEVELOPER</span>
                     </h1>
-                    <p className="text-[#DEDEDE] opacity-70">
+                    <p className="text-[#DEDEDE] opacity-70 slide-up-and-fade">
                         <span className="text-white font-bold opacity-100">
                             &quot;코드도 UX도 녹이 슨다.&quot;
                         </span>{' '}
