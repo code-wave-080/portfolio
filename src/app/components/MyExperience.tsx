@@ -79,11 +79,11 @@ export default function MyExperience() {
                     </h2>
                 </div>
                 <div className="grid gap-14 cursor-pointer">
-                    <div className="experience-item">
+                    <div className="experience-item group">
                         <div className="experience-item-title mb-8">
                             <p className="text-xl">XENOIMPACT</p>
-                            <div className="group">
-                                <h4 className="text-4xl xs:text-6xl flex gap-4 font-anton font-bold transition-all duration-900 bg-gradient-to-r from-pink-500 to-white from-[50%] to-[50%] bg-[length:200%] bg-right bg-clip-text text-transparent group hover:bg-left">
+                            <div>
+                                <h4 className="text-4xl xs:text-6xl flex gap-4 font-anton font-bold transition-all duration-900 bg-gradient-to-r from-pink-500 to-white from-[50%] to-[50%] bg-[length:200%] bg-right bg-clip-text text-transparent group-hover:bg-left">
                                     Frontend Developer
                                     <span className="text-pink-500 opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center"></span>
                                 </h4>
