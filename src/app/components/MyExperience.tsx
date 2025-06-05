@@ -8,6 +8,13 @@ gsap.registerPlugin(useGSAP, ScrollTrigger)
 export default function MyExperience() {
     const containerRef = useRef<HTMLDivElement>(null)
 
+    const data = [
+        {id: '1', projectName: '화물 적재 시뮬레이션', startDate: '2025.05', endDate: null},
+        {id: '2', projectName: 'Arches', startDate: '2023.01', endDate: null},
+        {id: '3', projectName: '공통 컴포넌트 문서화', startDate: '2023.09', endDate: '2024.01'},
+        {id: '4', projectName: 'Maru', startDate: '2022.01', endDate: '2022.12'},
+    ]
+
     useGSAP(
         () => {
             const tl = gsap.timeline({
@@ -71,45 +78,20 @@ export default function MyExperience() {
                             </p>
                         </div>
                         <div className="flex flex-col gap-8">
-                            <div className="relative">
-                                <div className="flex items-center gap-4">
-                                    <div className="w-[20px] h-[20px] rounded-full bg-white"></div>
-                                    <h4 className="text-lg font-bold">화물 적재 시뮬레이션</h4>
+                            {data.map((item, index) => (
+                                <div className="relative" key={item.id}>
+                                    <div className="flex items-center gap-4">
+                                        <div className="w-[20px] h-[20px] rounded-full bg-white"></div>
+                                        <h4 className="text-lg font-bold">{item.projectName}</h4>
+                                    </div>
+                                    <div className="pl-9">
+                                        <span>{item.startDate} - {item.endDate ?? '진행 중'}</span>
+                                    </div>
+                                    {data.length !== index + 1 && (
+                                        <div className="absolute top-[20px] left-[10px] h-[70px] border-l border-white border-dashed z-0"></div>
+                                    )}
                                 </div>
-                                <div className="pl-9">
-                                    <span>2025.05 - 진행 중</span>
-                                </div>
-                                <div className="absolute top-[20px] left-[10px] h-[70px] border-l border-white border-dashed z-0"></div>
-                            </div>
-                            <div className="relative">
-                                <div className="flex items-center gap-4">
-                                    <div className="w-[20px] h-[20px] rounded-full bg-white"></div>
-                                    <h4 className="text-lg font-bold">Arches</h4>
-                                </div>
-                                <div className="pl-9">
-                                    <span>2023.01 - 진행 중</span>
-                                </div>
-                                <div className="absolute top-[20px] left-[10px] h-[70px] border-l border-white border-dashed z-0"></div>
-                            </div>
-                            <div className="relative">
-                                <div className="flex items-center gap-4">
-                                    <div className="w-[20px] h-[20px] rounded-full bg-white"></div>
-                                    <h4 className="text-lg font-bold">공통 컴포넌트 문서화</h4>
-                                </div>
-                                <div className="pl-9">
-                                    <span>2023.09 - 2024.01</span>
-                                </div>
-                                <div className="absolute top-[20px] left-[10px] h-[70px] border-l border-white border-dashed z-0"></div>
-                            </div>
-                            <div className="relative">
-                                <div className="flex items-center gap-4">
-                                    <div className="w-[20px] h-[20px] rounded-full bg-white"></div>
-                                    <h4 className="text-lg font-bold">Maru</h4>
-                                </div>
-                                <div className="pl-9">
-                                    <span>2022.01 - 2022.12</span>
-                                </div>
-                            </div>
+                            ))}
                         </div>
                     </div>
                 </div>
