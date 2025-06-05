@@ -58,16 +58,59 @@ export default function MyExperience() {
                 </div>
                 <div className="grid gap-14 cursor-pointer">
                     <div className="experience-item">
-                        <p className="text-xl">XENOIMPACT</p>
-                        <div className="group">
-                            <h4 className="text-4xl xs:text-6xl flex gap-4 font-anton font-bold transition-all duration-900 bg-gradient-to-r from-pink-500 to-white from-[50%] to-[50%] bg-[length:200%] bg-right bg-clip-text text-transparent group hover:bg-left">
-                                Frontend Developer
-                                <span className="text-pink-500 opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center"></span>
-                            </h4>
+                        <div className="experience-item-title mb-8">
+                            <p className="text-xl">XENOIMPACT</p>
+                            <div className="group">
+                                <h4 className="text-4xl xs:text-6xl flex gap-4 font-anton font-bold transition-all duration-900 bg-gradient-to-r from-pink-500 to-white from-[50%] to-[50%] bg-[length:200%] bg-right bg-clip-text text-transparent group hover:bg-left">
+                                    Frontend Developer
+                                    <span className="text-pink-500 opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center"></span>
+                                </h4>
+                            </div>
+                            <p className="text-lg text-muted-foreground">
+                                2022년 01월 - 현재
+                            </p>
                         </div>
-                        <p className="text-lg text-muted-foreground">
-                            2022년 01월 - 현재
-                        </p>
+                        <div className="flex flex-col gap-8">
+                            <div className="relative">
+                                <div className="flex items-center gap-4">
+                                    <div className="w-[20px] h-[20px] rounded-full bg-white"></div>
+                                    <h4 className="text-lg font-bold">화물 적재 시뮬레이션</h4>
+                                </div>
+                                <div className="pl-9">
+                                    <span>2025.05 - 진행 중</span>
+                                </div>
+                                <div className="absolute top-[20px] left-[10px] h-[70px] border-l border-white border-dashed z-0"></div>
+                            </div>
+                            <div className="relative">
+                                <div className="flex items-center gap-4">
+                                    <div className="w-[20px] h-[20px] rounded-full bg-white"></div>
+                                    <h4 className="text-lg font-bold">Arches</h4>
+                                </div>
+                                <div className="pl-9">
+                                    <span>2023.01 - 진행 중</span>
+                                </div>
+                                <div className="absolute top-[20px] left-[10px] h-[70px] border-l border-white border-dashed z-0"></div>
+                            </div>
+                            <div className="relative">
+                                <div className="flex items-center gap-4">
+                                    <div className="w-[20px] h-[20px] rounded-full bg-white"></div>
+                                    <h4 className="text-lg font-bold">공통 컴포넌트 문서화</h4>
+                                </div>
+                                <div className="pl-9">
+                                    <span>2023.09 - 2024.01</span>
+                                </div>
+                                <div className="absolute top-[20px] left-[10px] h-[70px] border-l border-white border-dashed z-0"></div>
+                            </div>
+                            <div className="relative">
+                                <div className="flex items-center gap-4">
+                                    <div className="w-[20px] h-[20px] rounded-full bg-white"></div>
+                                    <h4 className="text-lg font-bold">Maru</h4>
+                                </div>
+                                <div className="pl-9">
+                                    <span>2022.01 - 2022.12</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
