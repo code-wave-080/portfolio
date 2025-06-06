@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, {useRef, useState} from 'react'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/all'
@@ -7,6 +7,7 @@ gsap.registerPlugin(useGSAP, ScrollTrigger)
 
 export default function MyExperience() {
     const containerRef = useRef<HTMLDivElement>(null)
+    const [hoveredId, setHoveredId] = useState<string | null>(null)
 
     const data = [
         {
@@ -94,10 +95,13 @@ export default function MyExperience() {
                         </div>
                         <div className="flex flex-col gap-8">
                             {data.map((item, index) => (
-                                <div className="relative" key={item.id}>
+                                <div className="relative" key={item.id} onMouseEnter={() => setHoveredId(item.id)}
+                                     onMouseLeave={() => setHoveredId(null)}>
                                     <div className="flex items-center gap-4">
                                         <div className="w-[20px] h-[20px] rounded-full bg-white"></div>
-                                        <h4 className="text-lg font-bold">
+                                        <h4 className={`text-lg font-bold transition-transform duration-300 ${
+                                            hoveredId === item.id ? 'scale-110' : ''
+                                        }`}>
                                             {item.projectName}
                                         </h4>
                                     </div>
