@@ -102,7 +102,13 @@ export default function MyExperience() {
                                     onMouseLeave={() => setHoveredId(null)}
                                 >
                                     <div className="flex items-center gap-4">
-                                        <div className="w-[20px] h-[20px] rounded-full bg-white"></div>
+                                        <div
+                                            className={`w-[20px] h-[20px] rounded-full ${
+                                                hoveredId === item.id
+                                                    ? 'bg-pink-500'
+                                                    : 'bg-white'
+                                            }`}
+                                        ></div>
                                         <h4
                                             className={`text-lg font-bold transition-transform duration-300 ${
                                                 hoveredId === item.id
