@@ -93,7 +93,7 @@ export default function MyExperience() {
                                 2022년 01월 - 현재
                             </p>
                         </div>
-                        <div className="flex flex-col gap-8">
+                        <div className="flex flex-col gap-8 ml-4">
                             {data.map((item, index) => (
                                 <div
                                     className="relative"
