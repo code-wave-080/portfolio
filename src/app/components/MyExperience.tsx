@@ -101,7 +101,7 @@ export default function MyExperience() {
                                     onMouseEnter={() => setHoveredId(item.id)}
                                     onMouseLeave={() => setHoveredId(null)}
                                 >
-                                    <div className="flex items-center gap-4">
+                                    <div className="flex items-center gap-5">
                                         <div
                                             className={`w-[20px] h-[20px] rounded-full z-1 ${
                                                 hoveredId === item.id
@@ -119,10 +119,9 @@ export default function MyExperience() {
                                             {item.projectName}
                                         </h4>
                                     </div>
-                                    <div className="pl-9">
+                                    <div className="pl-10">
                                         <span>
-                                            {item.startDate} -{' '}
-                                            {item.endDate ?? '진행 중'}
+                                            {`${item.startDate} - ${item.endDate ?? '진행 중'}`}
                                         </span>
                                     </div>
                                     {data.length !== index + 1 && (
