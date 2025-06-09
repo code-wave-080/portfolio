@@ -103,7 +103,7 @@ export default function MyExperience() {
                                 >
                                     <div className="flex items-center gap-4">
                                         <div
-                                            className={`w-[20px] h-[20px] rounded-full ${
+                                            className={`w-[20px] h-[20px] rounded-full z-1 ${
                                                 hoveredId === item.id
                                                     ? 'bg-pink-500'
                                                     : 'bg-white'
@@ -126,7 +126,7 @@ export default function MyExperience() {
                                         </span>
                                     </div>
                                     {data.length !== index + 1 && (
-                                        <div className="absolute top-[20px] left-[10px] h-[70px] border-l border-white border-dashed z-0"></div>
+                                        <div className="absolute top-[20px] left-[10px] h-[70px] border-l border-[#DEDEDE] border-dashed z-0"></div>
                                     )}
                                 </div>
                             ))}
