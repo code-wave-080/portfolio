@@ -2,8 +2,9 @@
 
 import React, { useState } from 'react'
 import { useRouter } from 'next/navigation'
+import Image from 'next/image'
 
-type ProjectItem = {
+interface ProjectItem {
     id: string
     img: string
     title: string
@@ -67,7 +68,7 @@ export default function MyProjects() {
                             border-2 rounded-[20px] w-[calc(50%-20px)] h-[500px]`}
                         >
                             <div className="bg-wrap">
-                                <img src={item.img} alt={item.title} />
+                                <Image src={item.img} alt={item.title} fill />
                                 <div className="absolute inset-0 bg-black/30"></div>
                             </div>
                             <div className="txt-item">
