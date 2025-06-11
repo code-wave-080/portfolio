@@ -168,7 +168,7 @@ export default function ProjectPage({
                     </div>
                 </div>
 
-                {project?.id === '1' ? (
+                {project?.id === 'mcard' ? (
                     <div
                         className="fade-in-later relative grid grid-cols-2 gap-2 max-w-[800px] mx-auto"
                         id="images"
