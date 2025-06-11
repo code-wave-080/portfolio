@@ -42,8 +42,6 @@ export default function ProjectPage({
         fetchProject().catch(console.error)
     }, [id])
 
-    console.log(project)
-
     useGSAP(
         () => {
             if (!containerRef.current) {
