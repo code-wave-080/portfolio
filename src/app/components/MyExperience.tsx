@@ -2,32 +2,66 @@ import React, { useRef, useState } from 'react'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/all'
+import { useRouter } from 'next/navigation'
 
 gsap.registerPlugin(useGSAP, ScrollTrigger)
 
+// 프로젝트 정보를 위한 타입
+interface Project {
+    id: string
+    projectName: string
+    startDate: string
+    endDate: string | null
+}
+
+// 회사 경력 정보를 위한 타입
+export interface CareerItem {
+    id: string
+    companyName: string
+    position: string
+    startDate: string
+    endDate: string | null
+    projects: Project[]
+}
+
 export default function MyExperience() {
+    const router = useRouter()
     const containerRef = useRef<HTMLDivElement>(null)
     const [hoveredId, setHoveredId] = useState<string | null>(null)
 
     const data = [
         {
-            id: '1',
-            projectName: '화물 적재 시뮬레이션',
-            startDate: '2025.05',
-            endDate: null,
-        },
-        { id: '2', projectName: 'Arches', startDate: '2023.01', endDate: null },
-        {
-            id: '3',
-            projectName: '공통 컴포넌트 문서화',
-            startDate: '2023.09',
-            endDate: '2024.01',
-        },
-        {
-            id: '4',
-            projectName: 'Maru',
+            id: 'xeno',
+            companyName: 'XENOIMPACT',
+            position: 'Frontend Developer',
             startDate: '2022.01',
-            endDate: '2022.12',
+            endDate: null,
+            projects: [
+                {
+                    id: '1',
+                    projectName: '화물 적재 시뮬레이션',
+                    startDate: '2025.05',
+                    endDate: null,
+                },
+                {
+                    id: '2',
+                    projectName: 'Arches',
+                    startDate: '2023.01',
+                    endDate: null,
+                },
+                {
+                    id: '3',
+                    projectName: '공통 컴포넌트 문서화',
+                    startDate: '2023.09',
+                    endDate: '2024.01',
+                },
+                {
+                    id: '4',
+                    projectName: 'Maru',
+                    startDate: '2022.01',
+                    endDate: '2022.12',
+                },
+            ],
         },
     ]
 
@@ -71,6 +105,10 @@ export default function MyExperience() {
         { scope: containerRef }
     )
 
+    function handleCareerNavigate({ id }: CareerItem) {
+        router.push(`/career/${id}`)
+    }
+
     return (
         <section className="pb-section text-[#DEDEDE]" id="my-experience">
             <div ref={containerRef} className="container">
@@ -79,58 +117,66 @@ export default function MyExperience() {
                         MY EXPERIENCE
                     </h2>
                 </div>
-                <div className="grid gap-14 cursor-pointer">
-                    <div className="experience-item group">
-                        <div className="experience-item-title mb-8">
-                            <p className="text-xl">XENOIMPACT</p>
-                            <div>
-                                <h4 className="text-4xl xs:text-6xl flex gap-4 font-anton font-bold transition-all duration-900 bg-gradient-to-r from-pink-500 to-white from-[50%] to-[50%] bg-[length:200%] bg-right bg-clip-text text-transparent group-hover:bg-left">
-                                    Frontend Developer
-                                    <span className="text-pink-500 opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center"></span>
-                                </h4>
-                            </div>
-                            <p className="text-lg text-muted-foreground">
-                                2022년 01월 - 현재
-                            </p>
-                        </div>
-                        <div className="flex flex-col gap-8 ml-4">
-                            {data.map((item, index) => (
-                                <div
-                                    className="relative"
-                                    key={item.id}
-                                    onMouseEnter={() => setHoveredId(item.id)}
-                                    onMouseLeave={() => setHoveredId(null)}
-                                >
-                                    <div className="flex items-center gap-5">
-                                        <div
-                                            className={`w-[20px] h-[20px] rounded-full z-1 ${
-                                                hoveredId === item.id
-                                                    ? 'bg-pink-500'
-                                                    : 'bg-white'
-                                            }`}
-                                        ></div>
-                                        <h4
-                                            className={`text-lg font-bold transition-transform duration-300 ${
-                                                hoveredId === item.id
-                                                    ? 'scale-110'
-                                                    : ''
-                                            }`}
-                                        >
-                                            {item.projectName}
-                                        </h4>
-                                    </div>
-                                    <div className="pl-10">
-                                        <span>
-                                            {`${item.startDate} - ${item.endDate ?? '진행 중'}`}
-                                        </span>
-                                    </div>
-                                    {data.length !== index + 1 && (
-                                        <div className="absolute top-[20px] left-[10px] h-[70px] border-l border-[#DEDEDE] border-dashed z-0"></div>
-                                    )}
+                <div className="grid gap-14">
+                    {data.map((item) => (
+                        <div
+                            key={item.id}
+                            className="experience-item group cursor-pointer"
+                            onClick={() => handleCareerNavigate(item)}
+                        >
+                            <div className="experience-item-title mb-8">
+                                <p className="text-xl">{item.companyName}</p>
+                                <div>
+                                    <h4 className="text-4xl xs:text-6xl flex gap-4 font-anton font-bold transition-all duration-900 bg-gradient-to-r from-pink-500 to-white from-[50%] to-[50%] bg-[length:200%] bg-right bg-clip-text text-transparent group-hover:bg-left">
+                                        Frontend Developer
+                                        <span className="text-pink-500 opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center"></span>
+                                    </h4>
                                 </div>
-                            ))}
+                                <p className="text-lg text-muted-foreground">
+                                    2022년 01월 - 현재
+                                </p>
+                            </div>
+                            <div className="flex flex-col gap-8 ml-4">
+                                {item.projects.map((project, index) => (
+                                    <div
+                                        className="relative"
+                                        key={project.id}
+                                        onMouseEnter={() =>
+                                            setHoveredId(project.id)
+                                        }
+                                        onMouseLeave={() => setHoveredId(null)}
+                                    >
+                                        <div className="flex items-center gap-5">
+                                            <div
+                                                className={`w-[20px] h-[20px] rounded-full z-1 ${
+                                                    hoveredId === project.id
+                                                        ? 'bg-pink-500'
+                                                        : 'bg-white'
+                                                }`}
+                                            ></div>
+                                            <h4
+                                                className={`text-lg font-bold transition-transform duration-300 ${
+                                                    hoveredId === project.id
+                                                        ? 'scale-110'
+                                                        : ''
+                                                }`}
+                                            >
+                                                {project.projectName}
+                                            </h4>
+                                        </div>
+                                        <div className="pl-10">
+                                            <span>
+                                                {`${project.startDate} - ${project.endDate ?? '진행 중'}`}
+                                            </span>
+                                        </div>
+                                        {item.projects.length !== index + 1 && (
+                                            <div className="absolute top-[20px] left-[10px] h-[70px] border-l border-[#DEDEDE] border-dashed z-0"></div>
+                                        )}
+                                    </div>
+                                ))}
+                            </div>
                         </div>
-                    </div>
+                    ))}
                 </div>
             </div>
         </section>
