@@ -34,7 +34,7 @@ export default function ProjectPage({
 
     useEffect(() => {
         const fetchProject = async () => {
-            const res = await fetch(`/api/meta/${id}`)
+            const res = await fetch(`/api/meta/project/${id}`)
             const data = await res.json()
             setProject(data)
         }
