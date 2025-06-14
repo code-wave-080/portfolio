@@ -20,7 +20,7 @@ export default function CareerPage({
 
     useEffect(() => {
         const fetchProject = async () => {
-            const res = await fetch(`/api/meta/${id}`)
+            const res = await fetch(`/api/meta/career/${id}`)
             const data = await res.json()
             setCareer(data)
         }
