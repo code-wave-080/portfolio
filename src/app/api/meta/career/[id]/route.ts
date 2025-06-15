@@ -22,7 +22,13 @@ const metadataList = [
                         <li>화물 추가/편집, 컨테이너 목록 테이블 관리, 로딩 컴포넌트 등 기능 모듈화로 유지보수성과 확장성 강화</li>
                     </ul>
                 `,
-                techStacks: ['Vue3', 'TypeScript', 'Tailwind CSS', 'Three.js', 'Pinia']
+                techStacks: [
+                    'Vue3',
+                    'TypeScript',
+                    'Tailwind CSS',
+                    'Three.js',
+                    'Pinia',
+                ],
             },
             {
                 id: '2',
@@ -43,7 +49,16 @@ const metadataList = [
                         <li>반복적으로 발생하던 처리 오류를 개선하고 방지 로직을 도입하여 기술 부채 해소 및 시스템 전반의 안정성 향상</li>
                     </ul>
                 `,
-                techStacks: ['Vue3', 'TypeScript', 'Style-Components', 'Vite', 'Vue-Router', 'Echarts', 'Tiptap', 'Vuelidate']
+                techStacks: [
+                    'Vue3',
+                    'TypeScript',
+                    'Style-Components',
+                    'Vite',
+                    'Vue-Router',
+                    'Echarts',
+                    'Tiptap',
+                    'Vuelidate',
+                ],
             },
             {
                 id: '3',
@@ -58,7 +73,12 @@ const metadataList = [
                         <li>문서 기반으로 컴포넌트 사용법과 예외 케이스를 명확히 정리하여, 개발자 간 커뮤니케이션 오류를 줄이고 협업 효율을 높임/li>
                     </ul>
                 `,
-                techStacks: ['Storybook', 'Vue3', 'Typescript', 'Style-Components']
+                techStacks: [
+                    'Storybook',
+                    'Vue3',
+                    'Typescript',
+                    'Style-Components',
+                ],
             },
             {
                 id: '4',
@@ -75,7 +95,13 @@ const metadataList = [
                         <li>사용자 VOC를 기반으로 반복 개선 작업을 수행, 기능 요청 반영 속도 단축 및 운영 효율성 향상/li>
                     </ul>
                 `,
-                techStacks: ['Vue2', 'JavaScript', 'Spring Framework', 'Java', 'MySQL']
+                techStacks: [
+                    'Vue2',
+                    'JavaScript',
+                    'Spring Framework',
+                    'Java',
+                    'MySQL',
+                ],
             },
         ],
     },
