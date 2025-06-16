@@ -12,6 +12,9 @@ interface Project {
     projectName: string
     startDate: string
     endDate: string | null
+    summary: string
+    achievements: string
+    techStacks: string[]
 }
 
 // 회사 경력 정보를 위한 타입
