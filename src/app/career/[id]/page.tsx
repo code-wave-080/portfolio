@@ -1,9 +1,10 @@
 'use client'
 
-import { use, useEffect, useRef, useState } from 'react'
+import React, { use, useEffect, useRef, useState } from 'react'
 import TransitionLink from '@/components/TransitionLink'
 import { ChevronLeft } from 'lucide-react'
 import { CareerItem } from '@/app/components/MyExperience'
+import parse from 'html-react-parser'
 
 interface CareerPageProps {
     id: string
@@ -56,6 +57,52 @@ export default function CareerPage({
                                 </span>
                             </h1>
                         </div>
+                        {career?.projects.map((project) => (
+                            <div
+                                key={project.id}
+                                className="max-w-[635px] space-y-7 pb-20 mx-auto"
+                            >
+                                <div className="fade-in-later">
+                                    <div className="inline-flex items-center gap-2 text-2xl">
+                                        {project.projectName}
+                                    </div>
+                                </div>
+                                <div className="fade-in-later">
+                                    <p className="text-muted-foreground font-anton mb-3">
+                                        날짜
+                                    </p>
+                                    <div className="text-lg">{`${project?.startDate} - ${project?.endDate ?? '진행 중'}`}</div>
+                                </div>
+                                <div className="fade-in-later">
+                                    <p className="text-muted-foreground font-anton mb-3">
+                                        성과
+                                    </p>
+                                    <div className="pb-3">
+                                        {project?.summary}
+                                    </div>
+                                    <div className="text-lg prose-xl markdown-text">
+                                        {project?.achievements
+                                            ? parse(project?.achievements)
+                                            : null}
+                                    </div>
+                                </div>
+                                <div className="fade-in-later">
+                                    <p className="text-muted-foreground font-anton mb-3">
+                                        기술 스택
+                                    </p>
+                                    <div className="inline-flex items-center gap-2 text-lg">
+                                        {project?.techStacks.map((stack) => (
+                                            <div
+                                                className="border border-gray-300 rounded-full px-3 py-1 text-sm"
+                                                key={stack}
+                                            >
+                                                {stack}
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </div>
