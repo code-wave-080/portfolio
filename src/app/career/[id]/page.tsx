@@ -57,7 +57,7 @@ export default function CareerPage({
                                 </span>
                             </h1>
                         </div>
-                        {career?.projects.map((project) => (
+                        {career?.projects.map((project, index) => (
                             <div
                                 key={project.id}
                                 className="max-w-[635px] space-y-7 pb-20 mx-auto"
@@ -91,7 +91,7 @@ export default function CareerPage({
                                         기술 스택
                                     </p>
                                     <div className="inline-flex items-center gap-2 text-lg">
-                                        {project?.techStacks.map((stack) => (
+                                        {project?.techStacks?.map((stack) => (
                                             <div
                                                 className="border border-gray-300 rounded-full px-3 py-1 text-sm"
                                                 key={stack}
@@ -101,6 +101,11 @@ export default function CareerPage({
                                         ))}
                                     </div>
                                 </div>
+                                {career?.projects?.length !== index + 1 && (
+                                    <div className="pt-13">
+                                        <hr />
+                                    </div>
+                                )}
                             </div>
                         ))}
                     </div>
