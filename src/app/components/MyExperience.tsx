@@ -7,14 +7,14 @@ import { useRouter } from 'next/navigation'
 gsap.registerPlugin(useGSAP, ScrollTrigger)
 
 // 프로젝트 정보를 위한 타입
-interface Project {
+interface ProjectItem {
     id: string
     projectName: string
     startDate: string
     endDate: string | null
-    summary: string
-    achievements: string
-    techStacks: string[]
+    summary?: string
+    achievements?: string
+    techStacks?: string[]
 }
 
 // 회사 경력 정보를 위한 타입
@@ -24,7 +24,7 @@ export interface CareerItem {
     position: string
     startDate: string
     endDate: string | null
-    projects: Project[]
+    projects: ProjectItem[]
 }
 
 export default function MyExperience() {
@@ -41,25 +41,29 @@ export default function MyExperience() {
             endDate: null,
             projects: [
                 {
-                    id: '1',
+                    id: 'cargo',
+                    parentId: 'xeno',
                     projectName: '화물 적재 시뮬레이션',
                     startDate: '2025.05',
                     endDate: null,
                 },
                 {
-                    id: '2',
+                    id: 'arches',
+                    parentId: 'xeno',
                     projectName: 'Arches',
                     startDate: '2023.01',
                     endDate: null,
                 },
                 {
-                    id: '3',
+                    id: 'storybook',
+                    parentId: 'xeno',
                     projectName: '공통 컴포넌트 문서화',
                     startDate: '2023.09',
                     endDate: '2024.01',
                 },
                 {
-                    id: '4',
+                    id: 'maru',
+                    parentId: 'xeno',
                     projectName: 'Maru',
                     startDate: '2022.01',
                     endDate: '2022.12',
@@ -108,8 +112,13 @@ export default function MyExperience() {
         { scope: containerRef }
     )
 
-    function handleCareerNavigate({ id }: CareerItem) {
-        router.push(`/career/${id}`)
+    function handleCareerNavigate(career: CareerItem, project?: ProjectItem) {
+        const searchParams = new URLSearchParams()
+        if (project?.id) {
+            searchParams.set('projectId', project.id)
+        }
+
+        router.push(`/career/${career.id}?${searchParams.toString()}`)
     }
 
     return (
@@ -125,9 +134,11 @@ export default function MyExperience() {
                         <div
                             key={item.id}
                             className="experience-item group cursor-pointer"
-                            onClick={() => handleCareerNavigate(item)}
                         >
-                            <div className="experience-item-title mb-8">
+                            <div
+                                className="experience-item-title mb-8"
+                                onClick={() => handleCareerNavigate(item)}
+                            >
                                 <p className="text-xl">{item.companyName}</p>
                                 <div>
                                     <h4 className="text-4xl xs:text-6xl flex gap-4 font-anton font-bold transition-all duration-900 bg-gradient-to-r from-pink-500 to-white from-[50%] to-[50%] bg-[length:200%] bg-right bg-clip-text text-transparent group-hover:bg-left">
@@ -148,6 +159,9 @@ export default function MyExperience() {
                                             setHoveredId(project.id)
                                         }
                                         onMouseLeave={() => setHoveredId(null)}
+                                        onClick={() =>
+                                            handleCareerNavigate(item, project)
+                                        }
                                     >
                                         <div className="flex items-center gap-5">
                                             <div
