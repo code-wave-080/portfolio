@@ -67,8 +67,14 @@ export default function MyProjects() {
                             ${hoveredId === item.id ? 'active' : ''}
                             border-2 rounded-[20px] w-[calc(50%-20px)] h-[500px]`}
                         >
-                            <div className="bg-wrap">
-                                <Image src={item.img} alt={item.title} fill />
+                            <div className="bg-wrap relative w-full h-full">
+                                <Image
+                                    src={item.img}
+                                    alt={item.title}
+                                    fill
+                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 500px"
+                                    className="object-cover rounded-[20px]"
+                                />
                                 <div className="absolute inset-0 bg-black/30"></div>
                             </div>
                             <div className="txt-item">
