@@ -5,6 +5,7 @@ import TransitionLink from '@/components/TransitionLink'
 import { ChevronLeft } from 'lucide-react'
 import { CareerItem } from '@/app/components/MyExperience'
 import parse from 'html-react-parser'
+import { useSearchParams } from 'next/navigation'
 
 interface CareerPageProps {
     id: string
@@ -16,18 +17,36 @@ export default function CareerPage({
     params: Promise<CareerPageProps>
 }) {
     const { id } = use(params) as CareerPageProps
+    const searchParams = useSearchParams()
     const containerRef = useRef<HTMLDivElement>(null)
     const [career, setCareer] = useState<CareerItem | null>(null)
 
     useEffect(() => {
-        const fetchProject = async () => {
-            const res = await fetch(`/api/meta/career/${id}`)
-            const data = await res.json()
-            setCareer(data)
+        const scrollToProject = (projectId: string) => {
+            const projectElement = document.getElementById(projectId)
+            projectElement?.scrollIntoView({
+                behavior: 'smooth',
+                block: 'center'
+            })
         }
 
-        fetchProject().catch(console.error)
-    }, [id])
+        (async () => {
+            try {
+                const res = await fetch(`/api/meta/career/${id}`)
+                const data = await res.json()
+                setCareer(data)
+
+                const projectId = searchParams.get('projectId')
+                if (!projectId) {
+                    return
+                }
+
+                scrollToProject(projectId)
+            } catch (error) {
+                console.error('프로젝트 데이터를 불러오는 중 오류가 발생했습니다:', error)
+            }
+        })()
+    }, [id, searchParams])
 
     return (
         <section className="pt-5 pb-14">
@@ -60,6 +79,7 @@ export default function CareerPage({
                         {career?.projects.map((project, index) => (
                             <div
                                 key={project.id}
+                                id={project.id}
                                 className="max-w-[635px] space-y-7 pb-20 mx-auto"
                             >
                                 <div className="fade-in-later">
