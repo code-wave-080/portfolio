@@ -20,10 +20,14 @@ import SlackIcon from '@/icons/slack.svg'
 import NotionIcon from '@/icons/notion.svg'
 import FigmaIcon from '@/icons/figma.svg'
 import GiraIcon from '@/icons/jira.svg'
+import EmotionIcon from '@/icons/emotion.png'
 import React, { useRef } from 'react'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/all'
+import Image, { StaticImageData } from 'next/image'
+
+type IconComponent = React.FC<React.SVGProps<SVGSVGElement>> | StaticImageData
 
 gsap.registerPlugin(ScrollTrigger, useGSAP)
 
@@ -75,7 +79,7 @@ export default function MyStack() {
         { scope: containerRef }
     )
 
-    const iconMap: Record<string, React.FC<React.SVGProps<SVGSVGElement>>> = {
+    const iconMap: Record<string, IconComponent> = {
         javascript: JavascriptIcon,
         typescript: TypescriptIcon,
         vuedotjs: VueIcon,
@@ -83,6 +87,7 @@ export default function MyStack() {
         nextdotjs: NextIcon,
         tailwindcss: TailwindIcon,
         sass: SassIcon,
+        emotion: EmotionIcon,
         styledComponents: StyledComponentsIcon,
         framer: FramerIcon,
         git: GitIcon,
@@ -179,6 +184,8 @@ export default function MyStack() {
                                 </div>
                                 <div className="sm:col-span-7 flex gap-x-11 gap-y-9 flex-wrap">
                                     {items.map((item, index) => {
+                                        if (iconMap[item.value]) {
+                                        }
                                         const Icon = iconMap[item.value]
                                         return (
                                             <div
@@ -186,11 +193,22 @@ export default function MyStack() {
                                                 key={index}
                                             >
                                                 <div className="rounded-full w-10 h-10 bg-[#313131] overflow-hidden flex items-center justify-center">
-                                                    {Icon && (
+                                                    {typeof Icon ===
+                                                    'function' ? (
                                                         <Icon
                                                             className="w-full h-full"
                                                             style={{
                                                                 fill: item.color,
+                                                            }}
+                                                        />
+                                                    ) : (
+                                                        <Image
+                                                            src={EmotionIcon}
+                                                            alt={item.label}
+                                                            className="w-full h-full"
+                                                            style={{
+                                                                backgroundColor:
+                                                                    item.color,
                                                             }}
                                                         />
                                                     )}
