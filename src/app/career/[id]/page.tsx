@@ -26,10 +26,9 @@ export default function CareerPage({
             const projectElement = document.getElementById(projectId)
             projectElement?.scrollIntoView({
                 behavior: 'smooth',
-                block: 'center'
+                block: 'center',
             })
         }
-
         (async () => {
             try {
                 const res = await fetch(`/api/meta/career/${id}`)
@@ -43,7 +42,10 @@ export default function CareerPage({
 
                 scrollToProject(projectId)
             } catch (error) {
-                console.error('프로젝트 데이터를 불러오는 중 오류가 발생했습니다:', error)
+                console.error(
+                    '프로젝트 데이터를 불러오는 중 오류가 발생했습니다:',
+                    error
+                )
             }
         })()
     }, [id, searchParams])
