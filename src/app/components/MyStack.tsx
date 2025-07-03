@@ -1,26 +1,4 @@
-import JavascriptIcon from '@/icons/javascript.svg'
-import TypescriptIcon from '@/icons/typescript.svg'
-import VueIcon from '@/icons/vuedotjs.svg'
-import ReactIcon from '@/icons/react.svg'
-import NextIcon from '@/icons/nextdotjs.svg'
-import TailwindIcon from '@/icons/tailwindcss.svg'
-import FramerIcon from '@/icons/framer.svg'
-import SassIcon from '@/icons/sass.svg'
-import StyledComponentsIcon from '@/icons/styledcomponents.svg'
-import GitIcon from '@/icons/git.svg'
-import GithubIcon from '@/icons/github.svg'
-import VercelIcon from '@/icons/vercel.svg'
-import FirebaseIcon from '@/icons/firebase.svg'
-import EslintIcon from '@/icons/eslint.svg'
-import PrettierIcon from '@/icons/prettier.svg'
-import StorybookIcon from '@/icons/storybook.svg'
-import IntellijIcon from '@/icons/intellijidea.svg'
-import EchartsIcon from '@/icons/apacheecharts.svg'
-import SlackIcon from '@/icons/slack.svg'
-import NotionIcon from '@/icons/notion.svg'
-import FigmaIcon from '@/icons/figma.svg'
-import GiraIcon from '@/icons/jira.svg'
-import EmotionIcon from '@/icons/emotion.png'
+import * as Icons from '@/icons'
 import React, { useRef } from 'react'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
@@ -80,29 +58,29 @@ export default function MyStack() {
     )
 
     const iconMap: Record<string, IconComponent> = {
-        javascript: JavascriptIcon,
-        typescript: TypescriptIcon,
-        vuedotjs: VueIcon,
-        react: ReactIcon,
-        nextdotjs: NextIcon,
-        tailwindcss: TailwindIcon,
-        sass: SassIcon,
-        emotion: EmotionIcon,
-        styledComponents: StyledComponentsIcon,
-        framer: FramerIcon,
-        git: GitIcon,
-        github: GithubIcon,
-        vercel: VercelIcon,
-        firebase: FirebaseIcon,
-        eslint: EslintIcon,
-        prettier: PrettierIcon,
-        storybook: StorybookIcon,
-        intellij: IntellijIcon,
-        echarts: EchartsIcon,
-        slack: SlackIcon,
-        notion: NotionIcon,
-        figma: FigmaIcon,
-        jira: GiraIcon,
+        javascript: Icons.JavascriptIcon,
+        typescript: Icons.TypescriptIcon,
+        vuedotjs: Icons.VueIcon,
+        react: Icons.ReactIcon,
+        nextdotjs: Icons.NextIcon,
+        tailwindcss: Icons.TailwindIcon,
+        sass: Icons.SassIcon,
+        emotion: Icons.EmotionIcon,
+        styledComponents: Icons.StyledComponentsIcon,
+        framer: Icons.FramerIcon,
+        git: Icons.GitIcon,
+        github: Icons.GithubIcon,
+        vercel: Icons.VercelIcon,
+        firebase: Icons.FirebaseIcon,
+        eslint: Icons.EslintIcon,
+        prettier: Icons.PrettierIcon,
+        storybook: Icons.StorybookIcon,
+        intellij: Icons.IntellijIcon,
+        echarts: Icons.EchartsIcon,
+        slack: Icons.SlackIcon,
+        notion: Icons.NotionIcon,
+        figma: Icons.FigmaIcon,
+        jira: Icons.GiraIcon,
     }
 
     const stacks = [
@@ -203,7 +181,9 @@ export default function MyStack() {
                                                         />
                                                     ) : (
                                                         <Image
-                                                            src={EmotionIcon}
+                                                            src={
+                                                                Icons.EmotionIcon
+                                                            }
                                                             alt={item.label}
                                                             className="w-full h-full"
                                                             style={{
