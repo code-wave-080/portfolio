@@ -72,7 +72,7 @@ export default function AboutMe() {
                                 opacity: 1,
                             }}
                         >
-                            Hi I&apos;m Yoon DaYeon
+                            안녕하세요
                         </p>
                     </div>
                     <div className="md:col-span-7">
