@@ -65,7 +65,7 @@ export default function MyProjects() {
                             onClick={() => handleProjectNavigate(item)}
                             className={`pj-img-box
                             ${hoveredId === item.id ? 'active' : ''}
-                            border-2 rounded-[20px] w-[calc(50%-20px)] h-[500px]`}
+                            border-2 rounded-[20px] overflow-hidden w-[calc(50%-20px)] h-[500px]`}
                         >
                             <div className="bg-wrap relative w-full h-full">
                                 <Image
@@ -73,7 +73,7 @@ export default function MyProjects() {
                                     alt={item.title}
                                     fill
                                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 500px"
-                                    className="object-cover rounded-[20px]"
+                                    className="object-cover"
                                 />
                                 <div className="absolute inset-0 bg-black/30"></div>
                             </div>
