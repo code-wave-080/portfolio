@@ -29,7 +29,7 @@ export default function CareerPage({
                 block: 'center',
             })
         }
-        (async () => {
+        ;(async () => {
             try {
                 const res = await fetch(`/api/meta/career/${id}`)
                 const data = await res.json()
