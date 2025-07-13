@@ -4,6 +4,7 @@ import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/all'
 import Image, { StaticImageData } from 'next/image'
+import SectionTitle from '@/components/SectionTitle'
 
 type IconComponent = React.FC<React.SVGProps<SVGSVGElement>> | StaticImageData
 
@@ -148,9 +149,7 @@ export default function MyStack() {
     return (
         <section className="pb-section" id="my-stack" ref={containerRef}>
             <div className="container">
-                <div className="flex items-center gap-4 mb-10 text-[#DEDEDE]">
-                    <h2 className="text-xl uppercase leading-none">MY STACK</h2>
-                </div>
+                <SectionTitle title="MY STACK"></SectionTitle>
                 <div className="space-y-20">
                     <div className="grid sm:grid-cols-12 gap-8">
                         {stacks.map(({ label, items }, index) => (
