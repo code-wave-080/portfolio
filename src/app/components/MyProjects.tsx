@@ -3,6 +3,7 @@
 import React, { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Image from 'next/image'
+import SectionTitle from "@/components/SectionTitle";
 
 interface ProjectItem {
     id: string
@@ -51,11 +52,7 @@ export default function MyProjects() {
     return (
         <section className="pb-section text-[#DEDEDE]" id="my-projects">
             <div className="container">
-                <div className="flex items-center gap-4 mb-10 text-[#DEDEDE]">
-                    <h2 className="text-xl uppercase leading-none">
-                        MY PROJECTS
-                    </h2>
-                </div>
+                <SectionTitle title="MY PROJECTS"></SectionTitle>
                 <div className="pj-img-con flex flex-wrap gap-[40px]">
                     {items.map((item) => (
                         <div
