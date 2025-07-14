@@ -3,7 +3,7 @@ import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/all'
 import { useRouter } from 'next/navigation'
-import SectionTitle from "@/components/SectionTitle";
+import SectionTitle from '@/components/SectionTitle'
 
 gsap.registerPlugin(useGSAP, ScrollTrigger)
 
