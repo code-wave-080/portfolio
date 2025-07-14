@@ -3,6 +3,7 @@ import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/all'
 import { useRouter } from 'next/navigation'
+import SectionTitle from "@/components/SectionTitle";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger)
 
@@ -124,11 +125,7 @@ export default function MyExperience() {
     return (
         <section className="pb-section text-[#DEDEDE]" id="my-experience">
             <div ref={containerRef} className="container">
-                <div className="flex items-center gap-4 mb-10 text-[#DEDEDE]">
-                    <h2 className="text-xl uppercase leading-none">
-                        MY EXPERIENCE
-                    </h2>
-                </div>
+                <SectionTitle title="MY EXPERIENCE"></SectionTitle>
                 <div className="grid gap-14">
                     {data.map((item) => (
                         <div
