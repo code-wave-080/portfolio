@@ -109,9 +109,9 @@ const metadataList = [
 
 export async function GET(
     request: NextRequest,
-    { params }: { params: { id: string } }
+    context: { params: { id: string } }
 ) {
-    const { id } = params
+    const { id } = context.params
 
     const metadata = metadataList.find((item) => item.id === id)
 
