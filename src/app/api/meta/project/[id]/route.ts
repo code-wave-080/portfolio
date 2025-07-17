@@ -144,10 +144,7 @@ const metadataList = [
     },
 ]
 
-export async function GET(
-    request: NextRequest,
-    { params }: { params: { id: string } }
-) {
+export async function GET(request: NextRequest, { params }) {
     const { id } = params
 
     const metadata = metadataList.find((item) => item.id === id)
