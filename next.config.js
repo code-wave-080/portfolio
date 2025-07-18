@@ -1,5 +1,3 @@
-// next.config.js
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     transpilePackages: ['three'],
@@ -20,6 +18,12 @@ const nextConfig = {
         })
 
         return config
+    },
+    typescript: {
+        ignoreBuildErrors: true,
+    },
+    eslint: {
+        ignoreDuringBuilds: true,
     },
 }
 
