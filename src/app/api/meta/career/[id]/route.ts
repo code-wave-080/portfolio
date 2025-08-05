@@ -25,8 +25,8 @@ const metadataList = [
                 techStacks: [
                     'Vue3',
                     'TypeScript',
-                    'Tailwind CSS',
                     'Three.js',
+                    'Tailwind CSS',
                     'Pinia',
                 ],
             },
@@ -52,12 +52,10 @@ const metadataList = [
                 techStacks: [
                     'Vue3',
                     'TypeScript',
-                    'Style-Components',
                     'Vite',
-                    'Vue-Router',
+                    'Style-Components',
                     'Echarts',
                     'Tiptap',
-                    'Vuelidate',
                 ],
             },
             {
@@ -73,12 +71,7 @@ const metadataList = [
                         <li>문서 기반으로 컴포넌트 사용법과 예외 케이스를 명확히 정리하여, 개발자 간 커뮤니케이션 오류를 줄이고 협업 효율을 높임</li>
                     </ul>
                 `,
-                techStacks: [
-                    'Storybook',
-                    'Vue3',
-                    'Typescript',
-                    'Style-Components',
-                ],
+                techStacks: ['Vue3', 'Typescript', 'Storybook'],
             },
             {
                 id: 'maru',
@@ -95,13 +88,7 @@ const metadataList = [
                         <li>사용자 VOC를 기반으로 반복 개선 작업을 수행, 기능 요청 반영 속도 단축 및 운영 효율성 향상</li>
                     </ul>
                 `,
-                techStacks: [
-                    'Vue2',
-                    'JavaScript',
-                    'Spring Framework',
-                    'Java',
-                    'MySQL',
-                ],
+                techStacks: ['Vue2', 'JavaScript', 'Spring', 'Java', 'MySQL'],
             },
         ],
     },
