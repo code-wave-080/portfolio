@@ -93,7 +93,7 @@ export default function ProjectPage({
                                 </span>
                             </h1>
 
-                            <div className="fade-in-later opacity-0 flex gap-2">
+                            {/*<div className="fade-in-later opacity-0 flex gap-2">
                                 {project?.url && (
                                     <a
                                         href={project?.url}
@@ -104,7 +104,7 @@ export default function ProjectPage({
                                         <ExternalLink size={30} />
                                     </a>
                                 )}
-                            </div>
+                            </div>*/}
                         </div>
 
                         <div className="max-w-[635px] space-y-7 pb-20 mx-auto">
