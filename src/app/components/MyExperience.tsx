@@ -42,6 +42,13 @@ export default function MyExperience() {
             endDate: null,
             projects: [
                 {
+                    id: 'kori',
+                    parentId: 'xeno',
+                    projectName: 'Kori Chat App',
+                    startDate: '2025.08',
+                    endDate: null,
+                },
+                {
                     id: 'cargo',
                     parentId: 'xeno',
                     projectName: '화물 적재 시뮬레이션',
