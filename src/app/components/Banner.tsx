@@ -45,7 +45,7 @@ export default function Banner() {
                         <span className="text-white font-bold opacity-100">
                             &quot;코드도 UX도 녹이 슨다.&quot;
                         </span>{' '}
-                        지속 가능한 개발을 고민하는 프론트엔드 개발자입니다.
+                        지속 가능한 개발을 탐구하는 프론트엔드 개발자입니다.
                         <br />
                         새로운 기술을 배우고 적용하는 과정에서 끊임없이 성장하는
                         개발자를 목표로 합니다.
